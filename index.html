@@ -9,7 +9,6 @@
 <meta name="description" content="A student and aspiring visual artist crafting VFX, cinematic edits and web experiences from Chandpur, Bangladesh. Explore Akror Karmaker's portfolio, skills and projects.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://akrorkarmaker.github.io/Portfolio/">
-  <meta name="google-site-verification" content="5xVCcKAAnSXezmR1tbtZyFR5Ixjb4oLNOmqizLQD0pg" />
 
 <!-- Open Graph: sharing previews -->
 <meta property="og:type" content="profile">
@@ -247,6 +246,85 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
   .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ========================================= */
+/* CV VIEWER + PDF DOWNLOAD                  */
+/* ========================================= */
+.cv-modal{position:fixed;inset:0;z-index:120;display:none;place-items:center;background:rgba(0,0,0,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:20px}
+.cv-modal.open{display:grid;animation:fade .3s}
+.cv-box{width:min(880px,100%);height:min(92vh,1100px);display:flex;flex-direction:column;background:#0a2563;border:1px solid rgba(255,255,255,.16);border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);animation:pop .4s cubic-bezier(.2,1.2,.4,1)}
+.cv-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;font-weight:600;background:#0a2563;flex:none}
+.cv-top button{width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:16px;cursor:pointer;flex:none;font-family:inherit}
+.cv-top button:focus-visible,.cv-bottom .btn:focus-visible{outline:3px solid #bfe6ff;outline-offset:2px}
+.cv-scroll{flex:1;overflow:auto;background:#dfe7f6;padding:18px;-webkit-overflow-scrolling:touch}
+.cv-bottom{flex:none;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));background:#0a2563;border-top:1px solid rgba(255,255,255,.14)}
+.cv-bottom .btn svg{width:18px;height:18px}
+.cv-bottom .btn[disabled]{opacity:.7;cursor:wait;transform:none}
+.cv-hint{font-size:12.5px;color:var(--sub)}
+
+/* The CV sheet (A4 proportions: 210 x 297 mm) */
+.cv-paper{--cv-a:#0a4dd6;display:flex;width:100%;max-width:794px;min-height:1120px;margin:0 auto;background:#fff;color:#1b2540;font-family:Inter,"Hind Siliguri",-apple-system,Segoe UI,sans-serif;font-size:13px;line-height:1.55;text-align:left;box-shadow:0 10px 40px rgba(0,20,80,.25);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cv-paper a{color:inherit;text-decoration:none}
+.cv-side{flex:0 0 262px;background:linear-gradient(180deg,#0b3fb8 0%,#07297a 55%,#06194d 100%);color:#fff;padding:30px 20px}
+.cv-photo{position:relative;width:118px;height:118px;border-radius:50%;margin:0 auto 22px;border:4px solid rgba(255,255,255,.88);overflow:hidden;background:linear-gradient(135deg,#bfe6ff,#4da3ff);display:grid;place-items:center;font-size:40px;font-weight:700;color:#fff}
+.cv-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cv-block{margin-bottom:20px}
+.cv-block h4{font-size:15px;font-weight:700;color:#bfe6ff;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.28);margin-bottom:11px}
+.cv-ci{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;font-size:12px;line-height:1.45;word-break:break-word}
+.cv-ci svg{flex:none;width:15px;height:15px;margin-top:1px;fill:none;stroke:#bfe6ff;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.cv-ci small{display:block;font-size:10.5px;color:#c9dcff;line-height:1.2}
+.cv-sk{margin-bottom:10px}
+.cv-sk b{display:block;font-size:13px;line-height:1.35}
+.cv-sk small{display:block;color:#c9dcff;font-size:11.5px;line-height:1.4}
+.cv-sk .lv{display:inline-block;margin-top:4px;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:rgba(255,255,255,.18);color:#fff}
+.cv-main{flex:1;min-width:0;padding:34px 36px 24px}
+.cv-name{font-size:38px;margin:0;font-weight:800;line-height:1.05;letter-spacing:-.025em;color:#06194d}
+.cv-name span{color:var(--cv-a)}
+.cv-role{margin-top:9px;font-size:14.5px;font-weight:600;color:#4a5b85}
+.cv-sec{margin-top:20px}
+.cv-sec h3{font-size:17px;font-weight:800;color:var(--cv-a);display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.cv-sec h3::after{content:"";flex:1;height:2px;background:#dbe6fb}
+.cv-sec p.sum{color:#2c3a62;font-size:13.5px;line-height:1.6}
+.cv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cv-stat{background:#f0f5ff;border:1px solid #d6e3fb;border-radius:12px;padding:11px 6px;text-align:center}
+.cv-stat b{display:block;font-size:22px;font-weight:800;color:#0a3fb8;line-height:1.15}
+.cv-stat small{display:block;font-size:10.5px;color:#4a5b85;line-height:1.3;margin-top:2px}
+.cv-item{position:relative;padding-left:18px;margin-bottom:12px;break-inside:avoid;page-break-inside:avoid}
+.cv-item::before{content:"";position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--cv-a)}
+.cv-item h5{font-size:15px;font-weight:700;color:#06194d;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;line-height:1.35}
+.cv-item h5 em{font-style:normal;font-size:11px;font-weight:700;color:var(--cv-a);background:#e7efff;padding:2px 9px;border-radius:999px}
+.cv-item h5 em.live{background:#e3f8ea;color:#17803d}
+.cv-item p{color:#34436b;font-size:12.5px;margin-top:3px}
+.cv-item ul{margin:5px 0 0 0;padding-left:17px;color:#34436b;font-size:12.5px}
+.cv-item li{margin-bottom:1px}
+.cv-item .lnk{display:inline-block;margin-top:4px;font-size:11.5px;font-weight:600;color:var(--cv-a)}
+.cv-tags{display:flex;flex-wrap:wrap;gap:7px}
+.cv-tags span{font-size:11.5px;font-weight:600;color:#0a3fb8;background:#eef3ff;border:1px solid #d6e3fb;padding:4px 11px;border-radius:999px}
+.cv-foot{margin-top:14px;font-size:11px;color:#7a88ab;text-align:center}
+
+/* Small screens: stack the sheet so it stays readable (the PDF copy uses .cv-fixed and always keeps the A4 layout) */
+@media(max-width:700px){
+  .cv-modal{padding:10px}
+  .cv-box{border-radius:20px;height:94vh}
+  .cv-scroll{padding:10px}
+  .cv-paper:not(.cv-fixed){flex-direction:column;min-height:0}
+  .cv-paper:not(.cv-fixed) .cv-side{flex:none;width:100%;padding:28px 22px 8px}
+  .cv-paper:not(.cv-fixed) .cv-main{padding:26px 22px 24px}
+  .cv-paper:not(.cv-fixed) .cv-name{font-size:32px}
+  .cv-paper:not(.cv-fixed) .cv-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Fallback printing (used only if the PDF library cannot load) */
+@page cvpage{size:A4;margin:0}
+@media print{
+  body.printing-cv{background:#fff!important}
+  body.printing-cv>*:not(#cvModal){display:none!important}
+  body.printing-cv #cvModal{display:block!important;position:static!important;background:none!important;padding:0!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;page:cvpage}
+  body.printing-cv .cv-box{display:block!important;height:auto!important;width:100%!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;animation:none!important}
+  body.printing-cv .cv-top,body.printing-cv .cv-bottom{display:none!important}
+  body.printing-cv .cv-scroll{overflow:visible!important;padding:0!important;background:#fff!important}
+  body.printing-cv .cv-paper{box-shadow:none!important;max-width:none!important;width:100%!important}
+}
 </style>
 </head>
 <body>
@@ -271,6 +349,7 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
   <div class="row">
     <a class="btn" href="#projects" data-bn="আমার কাজ দেখুন">View My Work</a>
     <a class="btn alt" href="#contact" data-bn="যোগাযোগ করুন">Get in Touch</a>
+    <button class="btn alt" id="cvOpen" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 7V3.5L18.5 9zM8 13h8v2H8zm0 4h8v2H8z"/></svg>Visit my CV</button>
   </div>
   <div class="stats">
     <div class="glass stat rv"><b>21K+</b><small data-bn="মোট ফলোয়ার<br>সকল প্ল্যাটফর্ম মিলিয়ে">Total followers<br>across all platforms</small></div>
@@ -488,6 +567,119 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
     <div class="mvid" id="mvid"></div>
   </div>
 </div>
+
+<!-- ================= CV VIEWER (English only) ================= -->
+<div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-label="Curriculum Vitae of Akror Karmaker" aria-hidden="true">
+  <div class="cv-box">
+    <div class="cv-top"><span>Curriculum Vitae</span><button id="cvClose" type="button" aria-label="Close CV">✕</button></div>
+
+    <div class="cv-scroll" id="cvScroll">
+      <article class="cv-paper" id="cvPaper">
+
+        <aside class="cv-side">
+          <div class="cv-photo"><span id="cvInit">AK</span><img id="cvPhoto" crossorigin="anonymous" alt="Akror Karmaker"></div>
+
+          <div class="cv-block">
+            <h4>Contact</h4>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:akror.karmaker@gmail.com"><small>Email</small>akror.karmaker@gmail.com</a></div>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+8801754285309"><small>Mobile</small>+880 1754-285309</a></div>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg><a href="https://t.me/Leovfxs"><small>Telegram</small>@Leovfxs</a></div>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span><small>Location</small>Chandpur Sadar, Chandpur, Bangladesh</span></div>
+          </div>
+
+          <div class="cv-block">
+            <h4>Skills</h4>
+            <div class="cv-sk"><b>After Effects</b><small>VFX work including the Lockdown effect</small></div>
+            <div class="cv-sk"><b>Mocha Pro &amp; Mocha AE</b><small>Planar tracking and roto</small><span class="lv">Advanced</span></div>
+            <div class="cv-sk"><b>Blender 3D</b><small>3D integration</small><span class="lv">Basic</span></div>
+            <div class="cv-sk"><b>AI Tools</b><small>Gemini, Claude, ChatGPT, Google Flow</small></div>
+            <div class="cv-sk"><b>Social Management</b><small>Facebook, Instagram, YouTube &amp; TikTok</small></div>
+            <div class="cv-sk"><b>Web &amp; Tech</b><small>GitHub, hosting, domains, user/admin panel setup</small></div>
+          </div>
+
+          <div class="cv-block">
+            <h4>Online</h4>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><a href="https://akrorkarmaker.github.io/Portfolio/"><small>Portfolio</small>akrorkarmaker.github.io/Portfolio</a></div>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><a href="https://www.facebook.com/share/1SS35SSVNT/"><small>Facebook</small>Vfxbyakro</a></div>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9.5 5 2.5-5 2.5z"/></svg><a href="https://youtube.com/@kunwarproject"><small>YouTube</small>@kunwarproject</a></div>
+            <div class="cv-ci"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2 4.2 5 4.5"/></svg><a href="https://www.tiktok.com/@natok_vibe"><small>TikTok</small>@natok_vibe</a></div>
+          </div>
+        </aside>
+
+        <div class="cv-main">
+          <h1 class="cv-name">Akror <span>Karmaker</span></h1>
+          <p class="cv-role">Visual Artist, VFX &amp; Video Editor, Web Enthusiast</p>
+
+          <div class="cv-sec">
+            <h3>Profile</h3>
+            <p class="sum">A student and aspiring visual artist crafting VFX, cinematic edits and web experiences from Chandpur, Bangladesh. I work with green screen compositing, 3D integration and motion tracking, manage growing social media brands, and run a community service platform for my local area.</p>
+          </div>
+
+          <div class="cv-sec">
+            <h3>Reach and results</h3>
+            <div class="cv-stats">
+              <div class="cv-stat"><b>21K+</b><small>Total followers across all platforms</small></div>
+              <div class="cv-stat"><b>15M+</b><small>Total views across all platforms</small></div>
+              <div class="cv-stat"><b>625+</b><small>YouTube subscribers</small></div>
+              <div class="cv-stat"><b>5+</b><small>Projects &amp; brands</small></div>
+            </div>
+          </div>
+
+          <div class="cv-sec">
+            <h3>Projects and experience</h3>
+
+            <div class="cv-item">
+              <h5>Amar Elaka (আমার এলাকা) <em>Community portal</em> <em class="live">Ongoing</em></h5>
+              <p>A community service platform bringing together daily information, emergency numbers, a blood donor section, user accounts and an admin panel.</p>
+              <ul>
+                <li>Daily information and emergency numbers</li>
+                <li>Blood donor section</li>
+                <li>User and admin panels</li>
+              </ul>
+              <a class="lnk" href="https://www.amarelaka.shop">www.amarelaka.shop</a>
+            </div>
+
+            <div class="cv-item">
+              <h5>Natok Vibe <em>Social brand</em></h5>
+              <p>Cinematic drama edits. 16K+ followers and up to 1.3M+ views.</p>
+              <a class="lnk" href="https://www.tiktok.com/@natok_vibe">tiktok.com/@natok_vibe</a>
+            </div>
+
+            <div class="cv-item">
+              <h5>Vfxbyakro <em>Personal VFX brand</em></h5>
+              <p>Green screen compositing, 3D integration and motion tracking.</p>
+              <a class="lnk" href="https://www.facebook.com/share/1SS35SSVNT/">facebook.com/Vfxbyakro</a>
+            </div>
+
+            <div class="cv-item">
+              <h5>Kunwar Project <em>YouTube</em></h5>
+              <p>A YouTube channel with 625+ subscribers.</p>
+              <a class="lnk" href="https://youtube.com/@kunwarproject">youtube.com/@kunwarproject</a>
+            </div>
+          </div>
+
+          <div class="cv-sec">
+            <h3>Areas of expertise</h3>
+            <div class="cv-tags">
+              <span>Visual Arts</span><span>Visual Effects (VFX)</span><span>Video Editing</span><span>Motion Tracking</span><span>Planar Tracking</span><span>Blender 3D</span><span>Web Technology</span><span>Social Media Management</span><span>AI Tools</span>
+            </div>
+          </div>
+
+          <p class="cv-foot">Built from the portfolio at akrorkarmaker.github.io/Portfolio</p>
+        </div>
+
+      </article>
+    </div>
+
+    <div class="cv-bottom">
+      <button class="btn" id="cvDownload" type="button"><svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.8-2.8a1 1 0 1 1 1.4 1.4l-4.5 4.5a1 1 0 0 1-1.4 0l-4.5-4.5a1 1 0 1 1 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1zM5 18a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v1a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1z"/></svg><span id="cvDlLabel">Download PDF</span></button>
+      <span class="cv-hint" id="cvHint" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
+
+<!-- PDF engine (html2pdf.js 0.10.1). If it cannot load, the button falls back to the browser's Save as PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
 <script>
 // ================== EDIT HERE ==================
@@ -715,6 +907,118 @@ const WORKS = [
         m = document.getElementById('fm').value.trim();
     location.href = 'mailto:akror.karmaker@gmail.com?subject=' +
       encodeURIComponent(s) + '&body=' + encodeURIComponent('Name: ' + n + '\n\n' + m);
+  });
+})();
+</script>
+<script>
+// ================== CV VIEWER + PDF DOWNLOAD ==================
+(function(){
+  var modal = document.getElementById('cvModal');
+  if(!modal) return;
+
+  var openBtn = document.getElementById('cvOpen');
+  var closeBtn = document.getElementById('cvClose');
+  var dlBtn = document.getElementById('cvDownload');
+  var dlLabel = document.getElementById('cvDlLabel');
+  var hint = document.getElementById('cvHint');
+  var paper = document.getElementById('cvPaper');
+  var scroller = document.getElementById('cvScroll');
+  var photo = document.getElementById('cvPhoto');
+  var init = document.getElementById('cvInit');
+  var prevOverflow = '';
+  var lastFocus = null;
+  var FILE_NAME = 'Akror_Karmaker_CV.pdf';
+
+  // Profile photo: reuse the PHOTO link from the EDIT HERE block above
+  if(typeof PHOTO !== 'undefined' && PHOTO && photo){
+    photo.onload = function(){ if(init) init.style.display = 'none'; };
+    photo.onerror = function(){ photo.style.display = 'none'; };
+    photo.src = PHOTO;
+  } else if(photo){
+    photo.style.display = 'none';
+  }
+
+  function openCV(){
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    scroller.scrollTop = 0;
+    hint.textContent = '';
+    if(closeBtn) closeBtn.focus();
+  }
+
+  function closeCV(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = prevOverflow || '';
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  if(openBtn) openBtn.addEventListener('click', openCV);
+  if(closeBtn) closeBtn.addEventListener('click', closeCV);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeCV(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('open')) closeCV();
+  });
+
+  function setBusy(b){
+    dlBtn.disabled = b;
+    dlLabel.textContent = b ? 'Preparing PDF…' : 'Download PDF';
+  }
+
+  // Fallback: browser print dialog -> "Save as PDF"
+  function printFallback(){
+    hint.textContent = 'Choose "Save as PDF" in the print window.';
+    document.body.classList.add('printing-cv');
+    var done = function(){
+      document.body.classList.remove('printing-cv');
+      window.removeEventListener('afterprint', done);
+    };
+    window.addEventListener('afterprint', done);
+    setTimeout(function(){ window.print(); }, 60);
+  }
+
+  function makePDF(){
+    // Work on a copy locked to the A4 layout so phones and desktops get the same PDF
+    var copy = paper.cloneNode(true);
+    copy.removeAttribute('id');
+    copy.classList.add('cv-fixed');
+    copy.style.boxShadow = 'none';
+    copy.style.maxWidth = 'none';
+    copy.style.width = '100%';
+
+    var opt = {
+      margin: 0,
+      filename: FILE_NAME,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0, windowWidth: 1024, logging: false },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['css', 'legacy'], avoid: '.cv-item' }
+    };
+
+    return window.html2pdf().set(opt).from(copy).save();
+  }
+
+  dlBtn.addEventListener('click', function(){
+    if(dlBtn.disabled) return;
+    hint.textContent = '';
+
+    if(typeof window.html2pdf !== 'function'){
+      printFallback();
+      return;
+    }
+
+    setBusy(true);
+    var ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    ready.then(makePDF).then(function(){
+      setBusy(false);
+      hint.textContent = 'PDF downloaded.';
+    }).catch(function(){
+      setBusy(false);
+      printFallback();
+    });
   });
 })();
 </script>
