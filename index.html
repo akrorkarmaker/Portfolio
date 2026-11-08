@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Akror Karmaker — Visual Artist &amp; VFX</title>
@@ -64,7 +64,23 @@ h2{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.025em;margin-
 .contact .ci{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;flex:none}
 .contact small{display:block;color:var(--sub);font-size:13px}
 footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
-.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}.work{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;cursor:pointer;background:linear-gradient(160deg,#0b3fb8,#06194d);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 34px rgba(0,10,40,.4);transition:.3s}.work:hover{transform:translateY(-5px)}.work img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.work .pl{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 55%,rgba(0,0,0,.55))}.work .pl i{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}.work .pl svg{width:22px;height:22px;fill:#fff;margin-left:3px}.work b{position:absolute;left:12px;right:12px;bottom:10px;font-size:13px;font-weight:600}.work iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.tl{position:relative;display:block;width:100%;height:100%}.tl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.tl .pl{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.25)}.tl .pl i{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}.tl .pl svg{width:26px;height:26px;fill:#fff;margin-left:4px}.work.more{display:grid;place-items:center;text-align:center;padding:16px;text-decoration:none;color:#fff;background:linear-gradient(160deg,rgba(111,180,255,.28),rgba(91,60,255,.25))}.work.more i{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;margin:0 auto 12px}.work.more svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.work.more b{position:static;display:block;font-size:15px}.work.more small{display:block;color:var(--sub);font-size:12px;margin-top:4px}
+
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.work{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;cursor:pointer;background:linear-gradient(160deg,#0b3fb8,#06194d);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 34px rgba(0,10,40,.4);transition:.3s}
+.work.horizontal{aspect-ratio:16/9;grid-column:span 2;}
+@media(max-width:600px){ .work.horizontal{grid-column:span 2;} }
+.work:hover{transform:translateY(-5px)}.work img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.work .pl{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 55%,rgba(0,0,0,.55))}.work .pl i{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}.work .pl svg{width:22px;height:22px;fill:#fff;margin-left:3px}.work b{position:absolute;left:12px;right:12px;bottom:10px;font-size:13px;font-weight:600}.work iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* --- See More Card Redesign --- */
+.work.more { display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; text-decoration: none; color: #fff; background: linear-gradient(160deg, rgba(111, 180, 255, 0.15), rgba(91, 60, 255, 0.1)); border: 1px solid rgba(111, 180, 255, 0.3); transition: .3s; }
+.work.more:hover { background: linear-gradient(160deg, rgba(111, 180, 255, 0.25), rgba(91, 60, 255, 0.2)); border-color: rgba(111, 180, 255, 0.6); transform: translateY(-5px); }
+.more-content { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+.more-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(255, 255, 255, 0.15); display: grid; place-items: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: .3s; }
+.work.more:hover .more-icon { background: rgba(255, 255, 255, 0.25); transform: scale(1.1); }
+.more-icon svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.work.more b { font-size: 16px; font-weight: 700; position: static; display: block; }
+.work.more small { font-size: 12.5px; color: var(--sub); position: static; display: block; margin-top: 4px; }
+
 .contact{display:flex;flex-direction:column}.contact .cform{width:100%}.contact .grid{order:3;display:flex;justify-content:center;gap:18px;margin-top:34px;margin-bottom:0}.contact .grid>div:nth-child(4){--t:#a5b4fc}.contact .grid>.glass{padding:0;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-radius:0}.contact .ci{width:66px;height:66px;border-radius:21px}.contact .item>span:last-child{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .cform{max-width:640px;margin:0 auto;display:grid;gap:14px}.cform:hover{transform:none}.cform h3{font-size:22px}.cform label{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--sub)}.cform input,.cform textarea{width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:16px;outline:none;transition:.25s;resize:vertical}.cform input:focus,.cform textarea:focus{border-color:#6fb4ff;box-shadow:0 0 0 4px rgba(111,180,255,.2)}.cform .btn{justify-content:center;width:100%}.cform .note{font-size:12.5px;color:var(--sub);text-align:center}
 .rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
@@ -73,25 +89,72 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
 .modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(0,0,0,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:20px}
 .modal.open{display:grid;animation:fade .3s}
 @keyframes fade{from{opacity:0}}
-.mbox{width:min(880px,100%);background:#0a2563;border:1px solid rgba(255,255,255,.16);border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:pop .4s cubic-bezier(.2,1.2,.4,1)}
 
-/* --- এখানে ভিডিও মোডালের সাইজ বড় করা হয়েছে --- */
-.mbox.vertical{width:min(100%, 480px); height:min(90vh, 850px); display:flex; flex-direction:column; background:#000;}
+.mbox{width:min(880px,100%);background:#0a2563;border:1px solid rgba(255,255,255,.16);border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:pop .4s cubic-bezier(.2,1.2,.4,1);display:flex;flex-direction:column}
+.mbox.vertical{width:min(100%, 380px); aspect-ratio: 9/16; max-height: 85vh; display:flex; flex-direction:column; background:#000;}
 .mbox.vertical .mvid{aspect-ratio:auto; flex:1; max-height:none; padding:0;}
-/* --------------------------------------------- */
 
 .mbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-weight:600;gap:10px;background:#0a2563}
 .mbar button{width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:16px;cursor:pointer;flex:none}
-.mvid{aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:#fff;text-align:center;padding:20px}
-.mvid video,.mvid iframe{width:100%;height:100%;border:0}
 
-/* --- মোবাইলে পুরো স্ক্রিন (Full Screen) ভিউ --- */
+.mvid{aspect-ratio:16/9;background:#000;display:block;width:100%;padding:0;margin:0;position:relative}
+.mvid video,.mvid iframe{width:100%;height:100%;border:0;display:block;}
+.mvid img{width:100%;height:auto;max-height:80vh;object-fit:contain;display:block;margin:0 auto;}
+
+/* ========================================= */
+/* GOOGLE SEARCH SECTION STYLES          */
+/* ========================================= */
+.google-sec { position: relative; padding-top: 20px; }
+.google-box { max-width: 760px; margin: 0 auto; text-align: center; }
+.g-logo-full { width: 160px; height: auto; margin: 0 auto 24px; display: block; animation: pop .9s cubic-bezier(.2,1.4,.4,1) both; }
+.g-search-container { position: relative; display: flex; align-items: center; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 999px; padding: 4px 14px 4px 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); transition: .3s; backdrop-filter: blur(10px); }
+.g-search-container:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); }
+.g-search-icon { width: 20px; height: 20px; fill: var(--sub); flex: none; }
+.g-input-display { flex: 1; text-align: left; padding: 12px 16px; font-size: 17px; color: #fff; font-family: inherit; display: flex; align-items: center; min-height: 48px; }
+.g-cursor { display: inline-block; width: 2px; height: 20px; background: var(--blue); margin-left: 2px; animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.g-actions { display: flex; align-items: center; gap: 12px; flex: none; }
+.g-action-icon { width: 24px; height: 24px; fill: #8ab4f8; cursor: pointer; transition: .2s; opacity: 0.8; }
+.g-action-icon:hover { opacity: 1; transform: scale(1.1); }
+.g-search-btn { display: none; background: none; border: 0; cursor: pointer; padding: 4px; }
+.g-search-btn svg { width: 24px; height: 24px; fill: var(--blue); transition: transform .2s; }
+.g-search-btn:hover svg { transform: scale(1.1); }
+
+/* Result Box (Gemini Overview) */
+.g-result-box { display: none; text-align: left; margin-top: 24px; background: #0a2563; border: 1px solid rgba(111, 180, 255, 0.3); border-radius: 20px; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); animation: slideDown .5s ease-out; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+.g-result-header { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+.g-result-header svg { width: 22px; height: 22px; }
+.g-result-content { font-size: 15px; line-height: 1.7; color: #dbe7ff; }
+.g-result-content strong { color: #fff; }
+.g-result-content ul { padding-left: 20px; margin-top: 10px; }
+.g-result-content li { margin-bottom: 8px; }
+.g-more-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 10px 24px; border-radius: 999px; border: 1px solid var(--blue); background: rgba(111, 180, 255, 0.1); color: var(--blue); font-size: 14px; font-weight: 600; cursor: pointer; transition: .3s; text-decoration: none; }
+.g-more-btn:hover { background: rgba(111, 180, 255, 0.2); color: #fff; }
+
+/* ========================================= */
+/* IMAGE GALLERY STYLES                      */
+/* ========================================= */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+.gallery-item { position: relative; border-radius: 20px; overflow: hidden; cursor: pointer; aspect-ratio: 1/1; border: 1px solid rgba(255,255,255,.16); box-shadow: 0 10px 24px rgba(0,0,0,.3); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item::after { content:""; position:absolute; inset:0; background: linear-gradient(transparent, rgba(0,0,0,.5)); opacity:0; transition:.3s; }
+.gallery-item:hover::after { opacity:1; }
+.gallery-zoom-icon { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transition: .3s; z-index: 2; }
+.gallery-item:hover .gallery-zoom-icon { opacity: 1; }
+.gallery-zoom-icon svg { width: 40px; height: 40px; fill: #fff; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 50%; backdrop-filter: blur(5px); }
+
 @media(max-width:600px){
   nav a{padding:8px 10px;font-size:13px}
   section{padding-top:70px}
-  .modal{padding:0;}
-  .mbox{border-radius:0; width:100%; height:100%; display:flex; flex-direction:column;}
-  .mbox .mvid{aspect-ratio:auto; flex:1; padding:0; max-height:none;}
+  .modal{padding:15px;}
+  .mbox{border-radius:20px;} 
+  .mbox.vertical{width:100%; height:auto; max-height:80vh;}
+  .g-input-display { font-size: 15px; padding: 12px 10px; }
+  .g-actions { gap: 8px; }
+  .g-logo-full { width: 130px; }
+  .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -127,6 +190,71 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
   </div>
 </section>
 
+<!-- GOOGLE SEARCH SECTION -->
+<section class="google-sec" id="google-search">
+  <div class="google-box">
+    <!-- Official Google Logo -->
+    <svg class="g-logo-full" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+      <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+      <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/>
+      <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+      <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+      <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
+    </svg>
+
+    <div class="g-search-container">
+      <svg class="g-search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      
+      <div class="g-input-display">
+        <span id="g-typewriter-text"></span><span class="g-cursor" id="g-cursor">|</span>
+      </div>
+
+      <div class="g-actions">
+        <!-- Mic Icon -->
+        <svg class="g-action-icon" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+        <!-- Lens Icon (Official Style) -->
+        <svg class="g-action-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-9c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm-1 2h2v-2H9v2zm0-4h2V7H9v2zm6 4h2v-2h-2v2zm0-4h2V7h-2v2z"/></svg>
+        <!-- Search Button -->
+        <button class="g-search-btn" id="g-search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Result Box -->
+    <div class="g-result-box" id="g-result-box">
+      <div class="g-result-header">
+        <!-- Official Gemini Logo SVG -->
+        <svg viewBox="0 0 24 24" fill="url(#geminiGrad)">
+          <defs>
+            <linearGradient id="geminiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4285F4" />
+              <stop offset="50%" stop-color="#9B72CB" />
+              <stop offset="100%" stop-color="#D96570" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2c.5 5.5 4.5 9.5 10 10-5.5.5-9.5 4.5-10 10-.5-5.5-4.5-9.5-10-10 5.5-.5 9.5-4.5 10-10z"/>
+        </svg>
+        Gemini overview...
+      </div>
+      <div class="g-result-content">
+        <p>আক্রোর কর্মকার (<strong>Akror Karmaker</strong>) হলেন বাংলাদেশের একজন শিক্ষার্থী এবং উদীয়মান থ্রি-ডি আর্টিস্ট (3D Artist) ও ভিএফএক্স আর্টিস্ট (VFX Artist)।</p>
+        <p style="margin-top:12px;font-weight:600;color:#fff;">তার সম্পর্কে কিছু মূল তথ্য:</p>
+        <ul>
+          <li><strong>পেশা ও আগ্রহ:</strong> থ্রি-ডি ডিজাইন, ভিজ্যুয়াল ইফেক্টস (VFX), ভিডিও এডিটিং এবং বেসিক ওয়েবসাইট ডেভেলপমেন্ট নিয়ে কাজ করেন।</li>
+          <li><strong>অবস্থান:</strong> বাংলাদেশের চাঁদপুর জেলার সদর উপজেলায় তাঁর বাড়ি।</li>
+          <li><strong>প্রজেক্ট:</strong> তিনি 'আমার এলাকা' (Amar Elaka) নামক একটি কমিউনিটি সার্ভিস প্ল্যাটফর্ম তৈরি করেছেন।</li>
+        </ul>
+      </div>
+      <a href="https://www.google.com/search?q=Akror+Karmaker" target="_blank" rel="noopener" class="g-more-btn">
+        Check to reality..
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="showreel" style="padding-top:40px">
   <h2 class="rv">Portfolio <span data-bn="ভিডিও">Showreel</span></h2>
   <p class="sec-sub rv" data-bn="আমার কাজের একঝলক">A quick look at my work.</p>
@@ -136,7 +264,47 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
 <section id="myworks" style="padding-top:40px">
   <h2 class="rv">My Work <span data-bn="ভিডিও">Videos</span></h2>
   <p class="sec-sub rv" data-bn="আমার বানানো কিছু কাজ">Some of my edits and VFX shots.</p>
-  <div class="works" id="works"><a class="work more" id="morecard" href="https://www.facebook.com/share/1SS35SSVNT/" target="_blank" rel="noopener"><div><i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b data-bn="আরও দেখুন">See more</b><small>Vfxbyakro on Facebook</small></div></a></div>
+  <div class="works" id="works">
+    <a class="work more" id="morecard" href="https://www.facebook.com/share/1SS35SSVNT/" target="_blank" rel="noopener">
+      <div class="more-content">
+        <i class="more-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
+        <b>See more</b>
+        <small>Vfxbyakro on Facebook</small>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- NEW IMAGE GALLERY SECTION -->
+<section id="gallery">
+  <h2 class="rv">Image <span data-bn="গ্যালারি">Gallery</span></h2>
+  <p class="sec-sub rv" data-bn="আমার তোলা কিছু ছবি">Some of my captures.</p>
+  <div class="gallery-grid rv">
+    <div class="gallery-item" onclick="openImageModal('https://i.ibb.co.com/FkzZ8Pdj/watermark-removed-1000096947.png')">
+      <img src="https://i.ibb.co.com/FkzZ8Pdj/watermark-removed-1000096947.png" alt="Gallery Image 1" loading="lazy">
+      <div class="gallery-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h.01M12 14h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="gallery-item" onclick="openImageModal('https://i.ibb.co.com/ZtzrwqV/IMG-5029.jpg')">
+      <img src="https://i.ibb.co.com/ZtzrwqV/IMG-5029.jpg" alt="Gallery Image 2" loading="lazy">
+      <div class="gallery-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h.01M12 14h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="gallery-item" onclick="openImageModal('https://i.ibb.co.com/Y7FNj903/watermark-removed-1000093967.png')">
+      <img src="https://i.ibb.co.com/Y7FNj903/watermark-removed-1000093967.png" alt="Gallery Image 3" loading="lazy">
+      <div class="gallery-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h.01M12 14h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="gallery-item" onclick="openImageModal('https://i.ibb.co.com/RTkXMCYj/My-Pic.png')">
+      <img src="https://i.ibb.co.com/RTkXMCYj/My-Pic.png" alt="Gallery Image 4" loading="lazy">
+      <div class="gallery-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h.01M12 14h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="gallery-item" onclick="openImageModal('https://i.ibb.co.com/jk6WymKN/IMG-20250623-111319.png')">
+      <img src="https://i.ibb.co.com/jk6WymKN/IMG-20250623-111319.png" alt="Gallery Image 5" loading="lazy">
+      <div class="gallery-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h.01M12 14h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+    <div class="gallery-item" onclick="openImageModal('https://i.ibb.co.com/kVBGd4c3/1794117191902.jpg')">
+      <img src="https://i.ibb.co.com/kVBGd4c3/1794117191902.jpg" alt="Gallery Image 6" loading="lazy">
+      <div class="gallery-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h.01M12 14h.01" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+    </div>
+  </div>
 </section>
 
 <section id="skills">
@@ -235,9 +403,13 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
 // ================== EDIT HERE ==================
 const PHOTO = "https://raw.githubusercontent.com/akrorkarmaker/Portfolio/main/Profile%20pic.JPG";
 const REEL = "https://www.youtube.com/embed/k8p6tXuIl_o?si=uqiO3eGlZNt3Kzde";
+
 const WORKS = [
-  {u:"https://youtube.com/shorts/Qrg1kS4CcRU"},
-  {u:"https://youtube.com/shorts/TbnheUoDcSY"},
+  {u:"https://youtube.com/shorts/Qrg1kS4CcRU"}, 
+  {u:"https://youtube.com/shorts/TbnheUoDcSY"}, 
+  {u:"https://youtube.com/shorts/t9K5bFWMYfw?si=RATijxh2yjvjd0aj"}, 
+  {u:"https://youtube.com/shorts/3e5YDGUn8OQ?si=N7jlZo_PIB7BgccA"}, 
+  {u:"https://www.youtube.com/embed/jmNWDazc5p8", horizontal: true} 
 ];
 // ===============================================
 
@@ -274,11 +446,58 @@ const WORKS = [
   }, {threshold:.15});
   document.querySelectorAll('.rv').forEach(function(el,i){ el.style.transitionDelay = (i%4)*70+'ms'; io.observe(el); });
 
+  // --- GOOGLE SEARCH ANIMATION & AUTO-CLICK ---
+  var gSearchSection = document.getElementById('google-search');
+  var gTypeTarget = document.getElementById('g-typewriter-text');
+  var gCursor = document.getElementById('g-cursor');
+  var gSearchBtn = document.getElementById('g-search-btn');
+  var gResultBox = document.getElementById('g-result-box');
+  var textToType = "Akror Karmaker";
+  var typeIndex = 0;
+  var hasTyped = false;
+
+  function triggerSearch() {
+    tick(1200);
+    gResultBox.style.display = 'block';
+    setTimeout(function() {
+      gResultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  function typeWriter() {
+    if (typeIndex < textToType.length) {
+      gTypeTarget.innerHTML += textToType.charAt(typeIndex);
+      typeIndex++;
+      setTimeout(typeWriter, 100);
+    } else {
+      gCursor.style.display = 'none';
+      gSearchBtn.style.display = 'block';
+      // অটোমেটিক সার্চ ট্রিগার হবে ৮০০ মিলি-সেকেন্ড পর
+      setTimeout(triggerSearch, 800);
+    }
+  }
+
+  if(gSearchSection) {
+    var gObserver = new IntersectionObserver(function(entries) {
+      if(entries[0].isIntersecting && !hasTyped) {
+        hasTyped = true;
+        setTimeout(typeWriter, 500);
+      }
+    }, { threshold: 0.5 });
+    gObserver.observe(gSearchSection);
+  }
+
+  // ম্যানুয়ালি ক্লিক করলেও কাজ করবে (ব্যাকআপ)
+  if(gSearchBtn) {
+    gSearchBtn.addEventListener('click', triggerSearch);
+  }
+
+  // --- MODAL LOGIC (Video & Image) ---
   function ytId(s){
     var m = String(s).match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/|\/v\/)([\w-]{11})/);
     return m && m[1];
   }
-  function isShort(s){ return /\/shorts\//.test(String(s)); }
+  function isShort(s){ return /\/shorts\//.test(String(s)) || /\/share\/v\//.test(String(s)) || /\/reel\//.test(String(s)); }
 
   function embed(src, auto){
     src = String(src || '').trim();
@@ -307,12 +526,24 @@ const WORKS = [
   var mtitle = document.getElementById('mtitle');
   var prevOverflow = '';
 
-  function openModal(title, src, fallback){
+  // Global function for Image Gallery
+  window.openImageModal = function(imageUrl) {
+    tick(880);
+    mtitle.textContent = 'Image View';
+    mbox.classList.remove('vertical');
+    mvid.innerHTML = '<img src="'+imageUrl+'" alt="Gallery Image">';
+    modal.classList.add('open');
+    prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+  };
+
+  function openModal(title, src, fallback, forceHorizontal){
     mtitle.textContent = title || '';
     var html = src ? embed(src, true) : '';
 
     if(html){
-      mbox.classList.toggle('vertical', isShort(src));
+      if(forceHorizontal) mbox.classList.remove('vertical');
+      else mbox.classList.toggle('vertical', isShort(src));
       mvid.innerHTML = html;
     }else{
       mbox.classList.remove('vertical');
@@ -351,18 +582,30 @@ const WORKS = [
     WORKS.forEach(function(w){
       var u = (w && w.u) ? w.u : w;
       var t = (w && w.t) ? w.t : '';
+      var isHorizontal = (w && w.horizontal) ? true : false;
+      
+      var isFB = /facebook\.com|fb\.watch/.test(u);
       var id = ytId(u);
-      if(!id) return;
+      
+      if(!id && !isFB) return;
+      
       var d = document.createElement('div');
       d.className = 'work';
-      d.innerHTML =
-        '<img loading="lazy" alt="" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" onerror="this.remove()">'+
+      if(isHorizontal) d.classList.add('horizontal');
+      
+      var thumbHtml = id 
+        ? '<img loading="lazy" alt="" src="https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg" onerror="this.onerror=null;this.src=\'https://i.ytimg.com/vi/'+id+'/hqdefault.jpg\';">'
+        : '<div style="width:100%;height:100%;background:linear-gradient(160deg,#1877F2,#0a2563);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" style="width:48px;height:48px;fill:rgba(255,255,255,0.8);"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>';
+        
+      d.innerHTML = thumbHtml +
         '<div class="pl"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>'+
         (t ? '<b>'+t+'</b>' : '');
+        
       d.addEventListener('click', function(){
         tick(880);
-        openModal(t || 'Video', String(u));
+        openModal(t || 'Video', String(u), '', isHorizontal);
       });
+      
       wg.insertBefore(d, document.getElementById('morecard'));
     });
   }
@@ -370,7 +613,7 @@ const WORKS = [
   document.querySelectorAll('.play').forEach(function(b){
     b.addEventListener('click', function(){
       var src = (b.dataset.src || '').trim();
-      openModal(b.dataset.title || '', src, b.dataset.fallback || '');
+      openModal(b.dataset.title || '', src, b.dataset.fallback || '', false);
     });
   });
 
