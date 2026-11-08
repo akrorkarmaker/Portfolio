@@ -70,17 +70,29 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
 .rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .rv.l{transform:translateX(-50px)}.rv.r{transform:translateX(50px)}
 .rv.in{opacity:1;transform:none}
-.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(0,0,0,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:20px}
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(0,0,0,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:20px}
 .modal.open{display:grid;animation:fade .3s}
 @keyframes fade{from{opacity:0}}
 .mbox{width:min(880px,100%);background:#0a2563;border:1px solid rgba(255,255,255,.16);border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:pop .4s cubic-bezier(.2,1.2,.4,1)}
-.mbox.vertical{width:min(430px,100%)}
-.mbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-weight:600;gap:10px}
+
+/* --- এখানে ভিডিও মোডালের সাইজ বড় করা হয়েছে --- */
+.mbox.vertical{width:min(100%, 480px); height:min(90vh, 850px); display:flex; flex-direction:column; background:#000;}
+.mbox.vertical .mvid{aspect-ratio:auto; flex:1; max-height:none; padding:0;}
+/* --------------------------------------------- */
+
+.mbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-weight:600;gap:10px;background:#0a2563}
 .mbar button{width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:16px;cursor:pointer;flex:none}
 .mvid{aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:#fff;text-align:center;padding:20px}
-.mbox.vertical .mvid{aspect-ratio:9/16;max-height:76vh}
 .mvid video,.mvid iframe{width:100%;height:100%;border:0}
-@media(max-width:600px){nav a{padding:8px 10px;font-size:13px}section{padding-top:70px}}
+
+/* --- মোবাইলে পুরো স্ক্রিন (Full Screen) ভিউ --- */
+@media(max-width:600px){
+  nav a{padding:8px 10px;font-size:13px}
+  section{padding-top:70px}
+  .modal{padding:0;}
+  .mbox{border-radius:0; width:100%; height:100%; display:flex; flex-direction:column;}
+  .mbox .mvid{aspect-ratio:auto; flex:1; padding:0; max-height:none;}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -221,22 +233,12 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
 
 <script>
 // ================== EDIT HERE ==================
-// প্রোফাইল ছবি (imgbb ইত্যাদির ডিরেক্ট লিংক)
 const PHOTO = "https://raw.githubusercontent.com/akrorkarmaker/Portfolio/main/Profile%20pic.JPG";
-
-// ✅ আপনার দেওয়া নতুন শোরিল এমবেড লিংক — সাইটের ভেতরেই প্লে হবে
 const REEL = "https://www.youtube.com/embed/k8p6tXuIl_o?si=uqiO3eGlZNt3Kzde";
-
-// "My Work" সেকশনের ভিডিও। যত খুশি লাইন যোগ করুন।
-// YouTube Shorts, youtu.be, watch?v= — সবই চলবে। সাইটের ভেতরেই মোডালে প্লে হবে।
 const WORKS = [
   {u:"https://youtube.com/shorts/Qrg1kS4CcRU"},
   {u:"https://youtube.com/shorts/TbnheUoDcSY"},
-  // {u:"https://youtube.com/shorts/xxxxxxxxxxx", t:"Video title"},
 ];
-
-// প্রজেক্ট কার্ডের ▶ Watch বাটনের ভিডিও লিংক (খালি থাকলে "শীঘ্রই আসছে" দেখাবে)
-// উদাহরণ: data-src="https://youtu.be/XXXXXXXXXXX"  ← HTML-এ সরাসরি বসিয়ে দিন
 // ===============================================
 
 (function(){
@@ -258,7 +260,6 @@ const WORKS = [
 
   if(PHOTO){ var p=document.getElementById('pic'), im=new Image(); im.onload=function(){ p.style.backgroundImage='url('+PHOTO+')'; p.textContent=''; }; im.src=PHOTO; }
 
-  // ---------- language toggle ----------
   var els = document.querySelectorAll('[data-bn]');
   els.forEach(function(el){ el.dataset.en = el.innerHTML; });
   document.getElementById('lang').addEventListener('click', function(){
@@ -268,13 +269,11 @@ const WORKS = [
     this.textContent = bn ? 'English' : 'বাংলা';
   });
 
-  // ---------- scroll reveal ----------
   var io = new IntersectionObserver(function(en){
     en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
   }, {threshold:.15});
   document.querySelectorAll('.rv').forEach(function(el,i){ el.style.transitionDelay = (i%4)*70+'ms'; io.observe(el); });
 
-  // ---------- helpers: YouTube / Facebook embed ----------
   function ytId(s){
     var m = String(s).match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/|\/v\/)([\w-]{11})/);
     return m && m[1];
@@ -284,13 +283,11 @@ const WORKS = [
   function embed(src, auto){
     src = String(src || '').trim();
     if(!src) return '';
-    // Facebook video / reel
     if(/facebook\.com|fb\.watch/.test(src)){
       return '<iframe src="https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(src)+
              '&show_text=false&width=900&autoplay='+(auto?1:0)+'" '+
              'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
     }
-    // YouTube (সব ফরম্যাট) — সাইটের ভেতরেই প্লে হবে
     var id = ytId(src);
     if(id){
       return '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay='+(auto?1:0)+
@@ -298,14 +295,12 @@ const WORKS = [
              'referrerpolicy="strict-origin-when-cross-origin" title="Video player" '+
              'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>';
     }
-    // সরাসরি mp4 / webm
     if(/\.(mp4|webm|ogg|m4v)(\?|$)/i.test(src) || /^https?:\/\//.test(src)){
       return '<video src="'+src+'" controls '+(auto?'autoplay ':'')+'playsinline></video>';
     }
     return '';
   }
 
-  // ---------- modal ----------
   var modal  = document.getElementById('modal');
   var mbox   = document.getElementById('mbox');
   var mvid   = document.getElementById('mvid');
@@ -343,7 +338,6 @@ const WORKS = [
   modal.addEventListener('click', function(e){ if(e.target === modal) closeM(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeM(); });
 
-  // ---------- showreel: সাইটের ভেতরেই প্লে হয় ----------
   var reel = document.getElementById('reel');
   if(reel){
     reel.innerHTML = REEL
@@ -351,7 +345,6 @@ const WORKS = [
       : '<p style="color:#b9cdf5">Portfolio video coming soon</p>';
   }
 
-  // ---------- My Work কার্ড: ক্লিকে মোডালে সাইটের ভেতরেই প্লে হবে ----------
   var wg = document.getElementById('works');
   if(wg){
     if(!WORKS.length){ document.getElementById('myworks').style.display = 'none'; }
@@ -374,7 +367,6 @@ const WORKS = [
     });
   }
 
-  // ---------- প্রজেক্টের ▶ Watch বাটন ----------
   document.querySelectorAll('.play').forEach(function(b){
     b.addEventListener('click', function(){
       var src = (b.dataset.src || '').trim();
@@ -382,7 +374,6 @@ const WORKS = [
     });
   });
 
-  // ---------- contact form ----------
   var cf = document.getElementById('cform');
   if(cf) cf.addEventListener('submit', function(e){
     e.preventDefault();
