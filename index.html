@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Akror Karmaker — Visual Artist &amp; VFX</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#030c24;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.16);--txt:#fff;--sub:#b9cdf5;--blue:#6fb4ff;--grad:linear-gradient(135deg,#bfe6ff,#4da3ff);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{background:radial-gradient(120% 70% at 50% 25%,#0b55f0 0%,#07297a 48%,#030c24 100%) fixed var(--bg);color:var(--txt);font-family:Inter,"Hind Siliguri",-apple-system,"SF Pro Display",Segoe UI,sans-serif;line-height:1.6;overflow-x:hidden}
+body.bn{font-family:"Hind Siliguri",Inter,sans-serif}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.35;z-index:-1;animation:float 16s ease-in-out infinite}
+.b1{width:420px;height:420px;background:#1f6bff;top:-100px;left:-100px}
+.b2{width:380px;height:380px;background:#00a3ff;top:35%;right:-120px;animation-delay:-5s}
+.b3{width:340px;height:340px;background:#5b3cff;bottom:-100px;left:25%;animation-delay:-9s}
+@keyframes float{50%{transform:translate(40px,-50px) scale(1.1)}}
+nav{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;background:var(--card);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 30px rgba(0,0,0,.08);max-width:96vw;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a,.lang{font-size:14px;font-weight:500;color:var(--txt);text-decoration:none;padding:8px 14px;border-radius:999px;white-space:nowrap;transition:.25s;cursor:pointer;border:0;background:none;font-family:inherit}
+nav a:hover{background:rgba(255,255,255,.12)}
+.lang{background:#fff;color:#04122e}
+.lang:active,.btn:active{transform:scale(.95)}
+section{max-width:1040px;margin:0 auto;padding:90px 22px 20px}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:110px}
+.avatar{position:relative;width:104px;height:104px;margin-bottom:22px;animation:pop .9s cubic-bezier(.2,1.4,.4,1) both}
+.avatar .pic{width:100%;height:100%;border-radius:50%;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:36px;font-weight:700;box-shadow:0 12px 36px rgba(0,113,227,.3);border:4px solid #0a2a7a;position:relative;z-index:1;background-size:cover;background-position:center}
+.avatar::before{content:"";position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(#a855f7,#7c3aed,#d8b4fe,#6d28d9,#a855f7);animation:spin 6s linear infinite;box-shadow:0 0 28px rgba(168,85,247,.55)}@keyframes spin{to{transform:rotate(360deg)}}.tick{z-index:2;position:absolute;right:0;bottom:4px;width:30px;height:30px;background:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+.chip{display:inline-block;font-size:13px;font-weight:600;color:var(--blue);background:rgba(111,180,255,.16);padding:6px 14px;border-radius:999px;margin-bottom:16px}
+h1{font-size:clamp(40px,8vw,76px);line-height:1.05;font-weight:800;letter-spacing:-.03em;margin-bottom:16px}
+h1 span,h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2.4vw,21px);color:var(--sub);max-width:560px;margin:0 auto 28px}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-size:16px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:.25s;background:linear-gradient(135deg,#2a78ff,#0a4dd6);color:#fff;box-shadow:0 8px 24px rgba(10,77,214,.5)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,113,227,.35)}
+.btn.alt{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;box-shadow:none}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:46px;width:100%}
+.glass{background:var(--card);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,.16);border-radius:28px;box-shadow:0 14px 44px rgba(0,10,40,.35),inset 0 1px 0 rgba(255,255,255,.12);padding:24px;transition:.35s}
+.glass:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.stat b{display:block;font-size:34px;font-weight:800;letter-spacing:-.02em}
+.stat small{color:var(--sub);font-size:14px}
+h2{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.025em;margin-bottom:8px}
+.sec-sub{color:var(--sub);margin-bottom:30px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.skill h3,.proj h3{font-size:20px;margin:10px 0 6px}
+.skill p{color:var(--sub);font-size:15px}
+.ico{width:56px;height:56px;border-radius:18px;display:grid;place-items:center}.ico,.ci{background:color-mix(in srgb,var(--t,#6fb4ff) 24%,rgba(255,255,255,.06));border:1px solid color-mix(in srgb,var(--t,#6fb4ff) 45%,transparent);color:var(--t,#6fb4ff);box-shadow:0 0 22px color-mix(in srgb,var(--t,#6fb4ff) 25%,transparent)}.skill:nth-child(2){--t:#b69cff}.skill:nth-child(3){--t:#5de0ff}.skill:nth-child(4){--t:#ff7aa8}.skill:nth-child(5){--t:#ffb454}.skill:nth-child(6){--t:#4ee38a}.contact .grid>div:nth-child(2){--t:#4ee38a}.contact .grid>div:nth-child(3){--t:#5de0ff}.ico svg,.ci svg,.feat svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.feat svg{width:20px;height:20px;color:var(--blue);vertical-align:-5px;margin-right:6px}.btn svg{width:15px;height:15px;fill:currentColor;stroke:none}
+.lvl{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.12)}
+.proj .tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.proj p{color:var(--sub);font-size:15px;margin-bottom:16px}
+.proj .row{justify-content:flex-start}
+.proj .btn{padding:9px 18px;font-size:14px;box-shadow:none}
+.big{grid-column:1/-1}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#5be38a}
+.live i{width:8px;height:8px;border-radius:50%;background:#34c759;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(52,199,89,0);transform:scale(1.2)}0%{box-shadow:0 0 0 0 rgba(52,199,89,.6)}}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
+.feat div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px;font-size:14px;font-weight:500}
+.contact a.item{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--txt)}
+.contact .ci{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;flex:none}
+.contact small{display:block;color:var(--sub);font-size:13px}
+footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}.work{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;cursor:pointer;background:linear-gradient(160deg,#0b3fb8,#06194d);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 34px rgba(0,10,40,.4);transition:.3s}.work:hover{transform:translateY(-5px)}.work img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.work .pl{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 55%,rgba(0,0,0,.55))}.work .pl i{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}.work .pl svg{width:22px;height:22px;fill:#fff;margin-left:3px}.work b{position:absolute;left:12px;right:12px;bottom:10px;font-size:13px;font-weight:600}.work iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.tl{position:relative;display:block;width:100%;height:100%}.tl img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.tl .pl{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.25)}.tl .pl i{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.25);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}.tl .pl svg{width:26px;height:26px;fill:#fff;margin-left:4px}.work.more{display:grid;place-items:center;text-align:center;padding:16px;text-decoration:none;color:#fff;background:linear-gradient(160deg,rgba(111,180,255,.28),rgba(91,60,255,.25))}.work.more i{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;margin:0 auto 12px}.work.more svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.work.more b{position:static;display:block;font-size:15px}.work.more small{display:block;color:var(--sub);font-size:12px;margin-top:4px}
+.contact{display:flex;flex-direction:column}.contact .cform{width:100%}.contact .grid{order:3;display:flex;justify-content:center;gap:18px;margin-top:34px;margin-bottom:0}.contact .grid>div:nth-child(4){--t:#a5b4fc}.contact .grid>.glass{padding:0;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-radius:0}.contact .ci{width:66px;height:66px;border-radius:21px}.contact .item>span:last-child{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.cform{max-width:640px;margin:0 auto;display:grid;gap:14px}.cform:hover{transform:none}.cform h3{font-size:22px}.cform label{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--sub)}.cform input,.cform textarea{width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:16px;outline:none;transition:.25s;resize:vertical}.cform input:focus,.cform textarea:focus{border-color:#6fb4ff;box-shadow:0 0 0 4px rgba(111,180,255,.2)}.cform .btn{justify-content:center;width:100%}.cform .note{font-size:12.5px;color:var(--sub);text-align:center}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.l{transform:translateX(-50px)}.rv.r{transform:translateX(50px)}
+.rv.in{opacity:1;transform:none}
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(0,0,0,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:20px}
+.modal.open{display:grid;animation:fade .3s}
+@keyframes fade{from{opacity:0}}
+.mbox{width:min(880px,100%);background:#0a2563;border:1px solid rgba(255,255,255,.16);border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:pop .4s cubic-bezier(.2,1.2,.4,1)}
+.mbox.vertical{width:min(430px,100%)}
+.mbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-weight:600;gap:10px}
+.mbar button{width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:16px;cursor:pointer;flex:none}
+.mvid{aspect-ratio:16/9;background:#000;display:grid;place-items:center;color:#fff;text-align:center;padding:20px}
+.mbox.vertical .mvid{aspect-ratio:9/16;max-height:76vh}
+.mvid video,.mvid iframe{width:100%;height:100%;border:0}
+@media(max-width:600px){nav a{padding:8px 10px;font-size:13px}section{padding-top:70px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+<nav>
+  <a href="#home" data-bn="হোম">Home</a>
+  <a href="#skills" data-bn="দক্ষতা">Skills</a>
+  <a href="#projects" data-bn="প্রজেক্ট">Projects</a>
+  <a href="#contact" data-bn="যোগাযোগ">Contact</a>
+  <button class="lang" id="lang">বাংলা</button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="avatar">
+    <div class="pic" id="pic">AK</div>
+    <div class="tick"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="#1d9bf0" d="M22.5 12.5c0-1.6-.9-3-2.2-3.7.5-1.4.2-3-.9-4.1s-2.7-1.4-4.1-.9C14.6 2.5 13.2 1.5 11.6 1.5S8.6 2.4 7.9 3.8c-1.4-.5-3-.2-4.1.9s-1.4 2.7-.9 4.1C1.5 9.5.5 10.9.5 12.5s.9 3 2.3 3.7c-.5 1.4-.2 3 .9 4.1s2.7 1.4 4.1.9c.7 1.3 2.1 2.3 3.7 2.3s3-.9 3.7-2.2c1.4.5 3 .2 4.1-.9s1.4-2.7.9-4.1c1.3-.8 2.3-2.1 2.3-3.8z" transform="translate(.4 -.5)"/><path fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m7.8 12.4 3 3 5.6-6"/></svg></div>
+  </div>
+  <span class="chip" data-bn="ভিজ্যুয়াল আর্টিস্ট • VFX">Visual Artist • VFX Enthusiast</span>
+  <h1>Akror <span>Karmaker</span></h1>
+  <p class="lead" data-bn="আমি একজন শিক্ষার্থী ও উদীয়মান ভিজ্যুয়াল আর্টিস্ট। VFX, এডিটিং ও ওয়েব নিয়ে কাজ করি। বাড়ি চাঁদপুর সদরে।">A student and aspiring visual artist crafting VFX, cinematic edits and web experiences from Chandpur, Bangladesh.</p>
+  <div class="row">
+    <a class="btn" href="#projects" data-bn="আমার কাজ দেখুন">View My Work</a>
+    <a class="btn alt" href="#contact" data-bn="যোগাযোগ করুন">Get in Touch</a>
+  </div>
+  <div class="stats">
+    <div class="glass stat rv"><b>21K+</b><small data-bn="মোট ফলোয়ার<br>সকল প্ল্যাটফর্ম মিলিয়ে">Total followers<br>across all platforms</small></div>
+    <div class="glass stat rv"><b>15M+</b><small data-bn="মোট ভিউ<br>সকল প্ল্যাটফর্ম মিলিয়ে">Total views<br>across all platforms</small></div>
+    <div class="glass stat rv"><b>625+</b><small data-bn="YouTube সাবস্ক্রাইবার">YouTube subscribers</small></div>
+    <div class="glass stat rv"><b>5+</b><small data-bn="প্রজেক্ট ও ব্র্যান্ড">Projects &amp; brands</small></div>
+  </div>
+</section>
+
+<section id="showreel" style="padding-top:40px">
+  <h2 class="rv">Portfolio <span data-bn="ভিডিও">Showreel</span></h2>
+  <p class="sec-sub rv" data-bn="আমার কাজের একঝলক">A quick look at my work.</p>
+  <div class="glass rv" style="padding:6px;border-radius:26px"><div class="mvid" id="reel" style="border-radius:20px;overflow:hidden;padding:0"></div></div>
+</section>
+
+<section id="myworks" style="padding-top:40px">
+  <h2 class="rv">My Work <span data-bn="ভিডিও">Videos</span></h2>
+  <p class="sec-sub rv" data-bn="আমার বানানো কিছু কাজ">Some of my edits and VFX shots.</p>
+  <div class="works" id="works"><a class="work more" id="morecard" href="https://www.facebook.com/share/1SS35SSVNT/" target="_blank" rel="noopener"><div><i><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><b data-bn="আরও দেখুন">See more</b><small>Vfxbyakro on Facebook</small></div></a></div>
+</section>
+
+<section id="skills">
+  <h2 class="rv">My <span data-bn="দক্ষতা">Skills</span></h2>
+  <p class="sec-sub rv" data-bn="যে টুল ও কাজে আমি দক্ষ">Tools and crafts I work with.</p>
+  <div class="grid">
+    <div class="glass skill rv l"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4"/></svg></div><h3>After Effects</h3><p data-bn="লকডাউন ইফেক্টসহ VFX কাজের অভিজ্ঞতা।">VFX work including the Lockdown effect.</p></div>
+    <div class="glass skill rv"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Mocha Pro &amp; Mocha AE</h3><p data-bn="ট্র্যাকিং ও রোটোতে উন্নত ধারণা।">Advanced understanding of planar tracking.</p><span class="lvl" data-bn="অ্যাডভান্সড">Advanced</span></div>
+    <div class="glass skill rv r"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></svg></div><h3>Blender 3D</h3><p data-bn="3D ইন্টিগ্রেশনের জন্য বেসিক দক্ষতা।">Basics for 3D integration.</p><span class="lvl" data-bn="বেসিক">Basic</span></div>
+    <div class="glass skill rv l"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></svg></div><h3>AI Tools</h3><p>Gemini, Claude, ChatGPT, Google Flow</p></div>
+    <div class="glass skill rv"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></div><h3 data-bn="সোশ্যাল ম্যানেজমেন্ট">Social Management</h3><p data-bn="ফেসবুক, ইনস্টাগ্রাম, ইউটিউব ও টিকটক।">Facebook, Instagram, YouTube &amp; TikTok.</p></div>
+    <div class="glass skill rv r"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><h3 data-bn="ওয়েব ও টেক">Web &amp; Tech</h3><p data-bn="GitHub, হোস্টিং, ডোমেইন ও অ্যাডমিন প্যানেল কানেক্ট।">GitHub, hosting, domains, user/admin panel setup.</p></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="rv">Featured <span data-bn="প্রজেক্ট">Projects</span></h2>
+  <p class="sec-sub rv" data-bn="আমার তৈরি ও পরিচালিত কাজগুলো">Things I built and run.</p>
+  <div class="grid">
+    <div class="glass proj big rv">
+      <span class="tag" data-bn="কমিউনিটি পোর্টাল">Community Portal</span> &nbsp; <span class="live"><i></i><span data-bn="চলমান">Ongoing</span></span>
+      <h3>Amar Elaka (আমার এলাকা)</h3>
+      <p data-bn="মানুষের দৈনন্দিন তথ্য, জরুরি নাম্বার, রক্তদাতা সেকশন, ইউজার অ্যাকাউন্ট ও অ্যাডমিন প্যানেল নিয়ে একটি কমিউনিটি সার্ভিস প্ল্যাটফর্ম।">A community service platform bringing together daily information, emergency numbers, a blood donor section, user accounts and an admin panel.</p>
+      <div class="feat">
+        <div class="rv l"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5"/></svg><span data-bn="প্রয়োজনীয় তথ্য">Daily information</span></div>
+        <div class="rv"><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20zM12 10v4M12 17v.01"/></svg><span data-bn="জরুরি নাম্বার">Emergency numbers</span></div>
+        <div class="rv"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg><span data-bn="রক্তদাতা সেকশন">Blood donors</span></div>
+        <div class="rv r"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6.5 6.5 0 0 1 3.5 6"/></svg><span data-bn="ইউজার ও অ্যাডমিন প্যানেল">User &amp; admin panels</span></div>
+      </div>
+      <div class="row">
+        <a class="btn" href="https://www.amarelaka.shop" target="_blank" rel="noopener" data-bn="ওয়েবসাইট দেখুন">Visit Website</a>
+        <a class="btn alt" href="https://www.facebook.com/share/1FFa11YAqv/" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn alt" href="mailto:support@amarelaka.shop">Support</a>
+      </div>
+    </div>
+    <div class="glass proj rv l">
+      <span class="tag" data-bn="সোশ্যাল ব্র্যান্ড">Social Brand</span>
+      <h3>Natok Vibe</h3>
+      <p data-bn="সিনেমাটিক নাটক এডিট। ১৬কে+ ফলোয়ার, সর্বোচ্চ ১.৩ মিলিয়ন+ ভিউ।">Cinematic drama edits. 16K+ followers and up to 1.3M+ views.</p>
+      <div class="row">
+        <button class="btn play" data-title="Natok Vibe" data-src="" data-fallback="https://www.facebook.com/share/1JzWFmQxtz/"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-bn="ভিডিও দেখুন">Watch</span></button>
+        <a class="btn alt" href="https://www.facebook.com/share/1JzWFmQxtz/" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn alt" href="https://www.tiktok.com/@natok_vibe" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="glass proj rv r">
+      <span class="tag" data-bn="ব্যক্তিগত VFX ব্র্যান্ড">Personal VFX Brand</span>
+      <h3>Vfxbyakro</h3>
+      <p data-bn="গ্রিন স্ক্রিন কম্পোজিটিং, 3D ইন্টিগ্রেশন ও মোশন ট্র্যাকিং।">Green screen compositing, 3D integration and motion tracking.</p>
+      <div class="row">
+        <button class="btn play" data-title="Vfxbyakro" data-src="" data-fallback="https://www.facebook.com/share/1SS35SSVNT/"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-bn="ভিডিও দেখুন">Watch</span></button>
+        <a class="btn alt" href="https://www.facebook.com/share/1SS35SSVNT/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="glass proj big rv">
+      <span class="tag">YouTube</span>
+      <h3>Kunwar Project</h3>
+      <p data-bn="ইউটিউব চ্যানেল — ৬২৫+ সাবস্ক্রাইবার।">A YouTube channel with 625+ subscribers.</p>
+      <div class="row">
+        <button class="btn play" data-title="Kunwar Project" data-src="" data-fallback="https://youtube.com/@kunwarproject"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span data-bn="ভিডিও দেখুন">Watch</span></button>
+        <a class="btn alt" href="https://youtube.com/@kunwarproject" target="_blank" rel="noopener" data-bn="চ্যানেল দেখুন">Visit Channel</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 class="rv">Let’s <span data-bn="কথা বলি">Connect</span></h2>
+  <p class="sec-sub rv" data-bn="কাজ বা সহযোগিতার জন্য যোগাযোগ করুন">Reach out for work or collaboration.</p>
+  <div class="grid">
+    <div class="glass rv l"><a class="item" href="mailto:akror.karmaker@gmail.com"><span class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small data-bn="ইমেইল">Email</small>akror.karmaker@gmail.com</span></a></div>
+    <div class="glass rv"><a class="item" href="tel:+8801754285309"><span class="ci"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><span><small data-bn="মোবাইল">Mobile</small>+880 1754-285309</span></a></div>
+    <div class="glass rv r"><a class="item" href="https://t.me/Leovfxs" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24"><path d="M21 3 10 14M21 3l-7 18-4-7-7-4z"/></svg></span><span><small>Telegram</small>@Leovfxs</span></a></div>
+    <div class="glass rv r"><a class="item" href="https://www.facebook.com/share/1SS35SSVNT/" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span><span><small>Facebook</small>Vfxbyakro</span></a></div>
+  </div>
+<form class="glass cform rv" id="cform" autocomplete="off">
+    <h3 data-bn="আমাকে মেসেজ করুন">Send me a message</h3>
+    <label><span data-bn="আপনার নাম">Your name</span><input id="fn" required maxlength="80"></label>
+    <label><span data-bn="বিষয়">Subject</span><input id="fs" required maxlength="120"></label>
+    <label><span data-bn="বিবরণ">Message</span><textarea id="fm" rows="5" required maxlength="1500"></textarea></label>
+    <button class="btn" type="submit"><svg viewBox="0 0 24 24"><path d="M3 20.5 21 12 3 3.5v6.5l12 2-12 2z"/></svg><span data-bn="পাঠান">Send</span></button>
+    <p class="note" data-bn="পাঠান বাটনে চাপলে আপনার ইমেইল অ্যাপ খুলবে, আমার ইমেইল আগে থেকেই বসা থাকবে।">Tapping Send opens your email app with my address already filled in.</p>
+  </form>
+</section>
+
+<footer data-bn="© ২০২৬ অক্রর কর্মকার। সর্বস্বত্ব সংরক্ষিত।">© 2026 Akror Karmaker. All rights reserved.</footer>
+
+<div class="modal" id="modal">
+  <div class="mbox" id="mbox">
+    <div class="mbar"><span id="mtitle"></span><button id="mclose" aria-label="Close">✕</button></div>
+    <div class="mvid" id="mvid"></div>
+  </div>
+</div>
+
+<script>
+// ================== EDIT HERE ==================
+// প্রোফাইল ছবি (imgbb ইত্যাদির ডিরেক্ট লিংক)
+const PHOTO = "https://raw.githubusercontent.com/akrorkarmaker/Portfolio/main/Profile%20pic.JPG";
+
+// ✅ আপনার দেওয়া নতুন শোরিল এমবেড লিংক — সাইটের ভেতরেই প্লে হবে
+const REEL = "https://www.youtube.com/embed/k8p6tXuIl_o?si=uqiO3eGlZNt3Kzde";
+
+// "My Work" সেকশনের ভিডিও। যত খুশি লাইন যোগ করুন।
+// YouTube Shorts, youtu.be, watch?v= — সবই চলবে। সাইটের ভেতরেই মোডালে প্লে হবে।
+const WORKS = [
+  {u:"https://youtube.com/shorts/Qrg1kS4CcRU"},
+  {u:"https://youtube.com/shorts/TbnheUoDcSY"},
+  // {u:"https://youtube.com/shorts/xxxxxxxxxxx", t:"Video title"},
+];
+
+// প্রজেক্ট কার্ডের ▶ Watch বাটনের ভিডিও লিংক (খালি থাকলে "শীঘ্রই আসছে" দেখাবে)
+// উদাহরণ: data-src="https://youtu.be/XXXXXXXXXXX"  ← HTML-এ সরাসরি বসিয়ে দিন
+// ===============================================
+
+(function(){
+  var AC, bn = false;
+  function ctx(){ try{ AC = AC || new (window.AudioContext||window.webkitAudioContext)(); if(AC.state==='suspended') AC.resume(); }catch(e){} return AC; }
+  function tick(f){
+    var c = ctx(); if(!c) return;
+    var o = c.createOscillator(), g = c.createGain();
+    o.type = 'sine'; o.frequency.setValueAtTime(f||880, c.currentTime);
+    o.frequency.exponentialRampToValueAtTime((f||880)*1.5, c.currentTime+.08);
+    g.gain.setValueAtTime(.0001, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(.18, c.currentTime+.01);
+    g.gain.exponentialRampToValueAtTime(.0001, c.currentTime+.16);
+    o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime+.18);
+  }
+  document.addEventListener('click', function(e){
+    if(e.target.closest('a,button')) tick(e.target.closest('.lang')?660:880);
+  });
+
+  if(PHOTO){ var p=document.getElementById('pic'), im=new Image(); im.onload=function(){ p.style.backgroundImage='url('+PHOTO+')'; p.textContent=''; }; im.src=PHOTO; }
+
+  // ---------- language toggle ----------
+  var els = document.querySelectorAll('[data-bn]');
+  els.forEach(function(el){ el.dataset.en = el.innerHTML; });
+  document.getElementById('lang').addEventListener('click', function(){
+    bn = !bn; document.body.classList.toggle('bn', bn);
+    document.documentElement.lang = bn ? 'bn' : 'en';
+    els.forEach(function(el){ el.innerHTML = bn ? el.dataset.bn : el.dataset.en; });
+    this.textContent = bn ? 'English' : 'বাংলা';
+  });
+
+  // ---------- scroll reveal ----------
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el,i){ el.style.transitionDelay = (i%4)*70+'ms'; io.observe(el); });
+
+  // ---------- helpers: YouTube / Facebook embed ----------
+  function ytId(s){
+    var m = String(s).match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/|\/v\/)([\w-]{11})/);
+    return m && m[1];
+  }
+  function isShort(s){ return /\/shorts\//.test(String(s)); }
+
+  function embed(src, auto){
+    src = String(src || '').trim();
+    if(!src) return '';
+    // Facebook video / reel
+    if(/facebook\.com|fb\.watch/.test(src)){
+      return '<iframe src="https://www.facebook.com/plugins/video.php?href='+encodeURIComponent(src)+
+             '&show_text=false&width=900&autoplay='+(auto?1:0)+'" '+
+             'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    }
+    // YouTube (সব ফরম্যাট) — সাইটের ভেতরেই প্লে হবে
+    var id = ytId(src);
+    if(id){
+      return '<iframe src="https://www.youtube.com/embed/'+id+'?autoplay='+(auto?1:0)+
+             '&rel=0&playsinline=1&modestbranding=1" '+
+             'referrerpolicy="strict-origin-when-cross-origin" title="Video player" '+
+             'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen></iframe>';
+    }
+    // সরাসরি mp4 / webm
+    if(/\.(mp4|webm|ogg|m4v)(\?|$)/i.test(src) || /^https?:\/\//.test(src)){
+      return '<video src="'+src+'" controls '+(auto?'autoplay ':'')+'playsinline></video>';
+    }
+    return '';
+  }
+
+  // ---------- modal ----------
+  var modal  = document.getElementById('modal');
+  var mbox   = document.getElementById('mbox');
+  var mvid   = document.getElementById('mvid');
+  var mtitle = document.getElementById('mtitle');
+  var prevOverflow = '';
+
+  function openModal(title, src, fallback){
+    mtitle.textContent = title || '';
+    var html = src ? embed(src, true) : '';
+
+    if(html){
+      mbox.classList.toggle('vertical', isShort(src));
+      mvid.innerHTML = html;
+    }else{
+      mbox.classList.remove('vertical');
+      mvid.innerHTML =
+        '<div><p style="font-size:18px;margin-bottom:14px">'+
+          (bn ? 'ভিডিও লিংক শীঘ্রই যোগ হবে' : 'Video link coming soon')+
+        '</p>'+
+        (fallback ? '<a class="btn" href="'+fallback+'" target="_blank" rel="noopener">'+
+          (bn ? 'অরিজিনাল পেজে দেখুন' : 'Open original page')+'</a>' : '')+
+        '</div>';
+    }
+    modal.classList.add('open');
+    prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeM(){
+    modal.classList.remove('open');
+    mvid.innerHTML = '';
+    mbox.classList.remove('vertical');
+    document.body.style.overflow = prevOverflow || '';
+  }
+  document.getElementById('mclose').addEventListener('click', closeM);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeM(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeM(); });
+
+  // ---------- showreel: সাইটের ভেতরেই প্লে হয় ----------
+  var reel = document.getElementById('reel');
+  if(reel){
+    reel.innerHTML = REEL
+      ? embed(REEL, false)
+      : '<p style="color:#b9cdf5">Portfolio video coming soon</p>';
+  }
+
+  // ---------- My Work কার্ড: ক্লিকে মোডালে সাইটের ভেতরেই প্লে হবে ----------
+  var wg = document.getElementById('works');
+  if(wg){
+    if(!WORKS.length){ document.getElementById('myworks').style.display = 'none'; }
+    WORKS.forEach(function(w){
+      var u = (w && w.u) ? w.u : w;
+      var t = (w && w.t) ? w.t : '';
+      var id = ytId(u);
+      if(!id) return;
+      var d = document.createElement('div');
+      d.className = 'work';
+      d.innerHTML =
+        '<img loading="lazy" alt="" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" onerror="this.remove()">'+
+        '<div class="pl"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>'+
+        (t ? '<b>'+t+'</b>' : '');
+      d.addEventListener('click', function(){
+        tick(880);
+        openModal(t || 'Video', String(u));
+      });
+      wg.insertBefore(d, document.getElementById('morecard'));
+    });
+  }
+
+  // ---------- প্রজেক্টের ▶ Watch বাটন ----------
+  document.querySelectorAll('.play').forEach(function(b){
+    b.addEventListener('click', function(){
+      var src = (b.dataset.src || '').trim();
+      openModal(b.dataset.title || '', src, b.dataset.fallback || '');
+    });
+  });
+
+  // ---------- contact form ----------
+  var cf = document.getElementById('cform');
+  if(cf) cf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = document.getElementById('fn').value.trim(),
+        s = document.getElementById('fs').value.trim(),
+        m = document.getElementById('fm').value.trim();
+    location.href = 'mailto:akror.karmaker@gmail.com?subject=' +
+      encodeURIComponent(s) + '&body=' + encodeURIComponent('Name: ' + n + '\n\n' + m);
+  });
+})();
+</script>
+</body>
+</html>
