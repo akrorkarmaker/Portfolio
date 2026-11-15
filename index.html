@@ -156,6 +156,9 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
 
 .works{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
 .work{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;cursor:pointer;background:linear-gradient(160deg,#0b3fb8,#06194d);border:1px solid rgba(255,255,255,.16);box-shadow:0 14px 34px rgba(0,10,40,.4);transition:.3s}
+.work .latest-badge{position:absolute;top:12px;left:12px;z-index:5;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:linear-gradient(135deg,#ff3158,#e6004c);color:#fff;font-size:10px;font-weight:800;letter-spacing:.7px;line-height:1;text-transform:uppercase;box-shadow:0 5px 18px rgba(230,0,76,.38);pointer-events:none}
+.work .latest-badge:before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.2);animation:latestPulse 1.5s infinite}
+@keyframes latestPulse{50%{opacity:.45;transform:scale(.8)}}
 .work.horizontal{aspect-ratio:16/9;grid-column:span 2;}
 @media(max-width:600px){ .work.horizontal{grid-column:span 2;} }
 .work:hover{transform:translateY(-5px)}.work img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.work .pl{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 55%,rgba(0,0,0,.55))}.work .pl i{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:grid;place-items:center}.work .pl svg{width:22px;height:22px;fill:#fff;margin-left:3px}.work b{position:absolute;left:12px;right:12px;bottom:10px;font-size:13px;font-weight:600}.work iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -686,11 +689,12 @@ const PHOTO = "https://raw.githubusercontent.com/akrorkarmaker/Portfolio/main/Pr
 const REEL = "https://www.youtube.com/embed/k8p6tXuIl_o?si=uqiO3eGlZNt3Kzde";
 
 const WORKS = [
-  {u:"https://youtube.com/shorts/Qrg1kS4CcRU"}, 
-  {u:"https://youtube.com/shorts/TbnheUoDcSY"}, 
-  {u:"https://youtube.com/shorts/t9K5bFWMYfw?si=RATijxh2yjvjd0aj"}, 
+  {u:"https://youtube.com/shorts/6KXTZCHEnU0?si=oDwrA42sd7xggZBz"}, 
+  {u:"https://youtube.com/shorts/BmUnO6qUt6k?si=mHkqPPHEfhIo3aIJ"}, 
+  {u:"https://youtube.com/shorts/3ojXZqxuuAo?si=gUQIr7ZRK3hrizFH"}, 
   {u:"https://youtube.com/shorts/3e5YDGUn8OQ?si=N7jlZo_PIB7BgccA"},
   {u:"https://youtube.com/shorts/tTU5-aalXWA?si=cE31vl4Pre97OG2o"}, 
+  {u:"https://youtube.com/shorts/t9K5bFWMYfw?si=RATijxh2yjvjd0aj"},
   {u:"https://www.youtube.com/embed/jmNWDazc5p8", horizontal: true} 
 ];
 // ===============================================
@@ -862,7 +866,7 @@ const WORKS = [
   var wg = document.getElementById('works');
   if(wg){
     if(!WORKS.length){ document.getElementById('myworks').style.display = 'none'; }
-    WORKS.forEach(function(w){
+    WORKS.forEach(function(w, workIndex){
       var u = (w && w.u) ? w.u : w;
       var t = (w && w.t) ? w.t : '';
       var isHorizontal = (w && w.horizontal) ? true : false;
@@ -881,6 +885,7 @@ const WORKS = [
         : '<div style="width:100%;height:100%;background:linear-gradient(160deg,#1877F2,#0a2563);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" style="width:48px;height:48px;fill:rgba(255,255,255,0.8);"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>';
         
       d.innerHTML = thumbHtml +
+        (workIndex < 3 ? '<span class="latest-badge">LATEST</span>' : '')+
         '<div class="pl"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></div>'+
         (t ? '<b>'+t+'</b>' : '');
         
