@@ -327,6 +327,81 @@ footer{text-align:center;color:var(--sub);font-size:14px;padding:50px 20px 40px}
   body.printing-cv .cv-scroll{overflow:visible!important;padding:0!important;background:#fff!important}
   body.printing-cv .cv-paper{box-shadow:none!important;max-width:none!important;width:100%!important}
 }
+/* ===== Subscribe verify (built-in, light theme) ===== */
+.akv{--ink:#1d1d1f;--mu:#86868b;--bl:#0071e3;--bg2:linear-gradient(135deg,#0a84ff,#0066d6);--ok:#34c759;--bad:#ff3b30;--gl:rgba(255,255,255,.65);--gb:rgba(255,255,255,.95);--fld:rgba(255,255,255,.85);--sh:0 12px 40px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04),inset 0 1px 0 #fff;position:fixed;inset:0;z-index:130;display:none;overflow:auto;-webkit-overflow-scrolling:touch;color-scheme:light;color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Hind Siliguri",system-ui,sans-serif;padding:max(28px,env(safe-area-inset-top)) 18px max(40px,env(safe-area-inset-bottom));background:radial-gradient(360px circle at 0 0,#a3c9ff,transparent 70%),radial-gradient(320px circle at 100% 22%,#ffb1c1,transparent 70%),radial-gradient(300px circle at 18% 100%,#a1ffd1,transparent 70%),radial-gradient(260px circle at 0 68%,#e2b1ff99,transparent 70%),#f5f5f7}
+.akv.open{display:block}
+.akv *{box-sizing:border-box}
+.akv .hide{display:none!important}
+.akv :focus-visible{outline:3px solid #0a84ff;outline-offset:2px}
+.akv .aw{max-width:440px;margin:0 auto;position:relative}
+.akv .aw.mk{max-width:520px}
+.akv h1{font-size:28px;line-height:1.3;font-weight:700;text-align:center;margin:0 0 8px;letter-spacing:-.5px}
+.akv h2{font-size:18px;font-weight:600;line-height:1.35;letter-spacing:-.3px;margin:0}
+.akv .sub{color:var(--mu);text-align:center;margin:0 0 26px;font-size:15.5px;font-weight:500}
+.akv .ring{width:100px;height:100px;border-radius:50%;display:grid;place-items:center;margin:10px auto 24px;color:var(--bl);background:var(--gl);border:1px solid var(--gb);box-shadow:var(--sh);-webkit-backdrop-filter:blur(40px) saturate(200%);backdrop-filter:blur(40px) saturate(200%)}
+.akv .akc{background:var(--gl);-webkit-backdrop-filter:blur(40px) saturate(200%);backdrop-filter:blur(40px) saturate(200%);border:1px solid var(--gb);box-shadow:var(--sh);border-radius:28px;padding:24px;margin-bottom:18px;transition:opacity .4s,transform .4s}
+.akv .akc>h2{margin-bottom:8px}
+.akv .dim{opacity:.4;pointer-events:none;transform:scale(.97)}
+.akv .hd{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+.akv .hd p{margin:4px 0 0;color:var(--mu);font-size:14.5px;line-height:1.55}
+.akv .no{flex:none;width:36px;height:36px;border-radius:50%;background:var(--bg2);color:#fff;display:grid;place-items:center;font-weight:600;box-shadow:0 4px 12px rgba(0,113,227,.3)}
+.akv .akb{display:block;width:100%;text-align:center;text-decoration:none;border:0;border-radius:999px;padding:16px;font:600 16.5px -apple-system,"Hind Siliguri",sans-serif;cursor:pointer;margin-top:14px;transition:transform .2s cubic-bezier(.34,1.4,.64,1)}
+.akv .akb:active{transform:scale(.96)}
+.akv .pri{background:var(--bg2);color:#fff;box-shadow:0 6px 20px rgba(0,113,227,.3)}
+.akv .sec{background:var(--fld);color:var(--bl);border:1px solid rgba(0,0,0,.05);box-shadow:0 4px 12px rgba(0,0,0,.03)}
+.akv .good{background:linear-gradient(135deg,#34c759,#248a3d);color:#fff;box-shadow:0 8px 24px rgba(52,199,89,.35);font-size:17px;padding:18px}
+.akv .yt{background:#fff;color:#ff3b30;border:1px solid rgba(255,59,48,.2);box-shadow:0 4px 14px rgba(255,59,48,.15);margin-top:12px}
+.akv .yt svg{vertical-align:-3px;margin-right:6px}
+.akv .sq{border-radius:14px}
+.akv .ghost{background:var(--fld);color:var(--ink);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 12px rgba(0,0,0,.03)}
+.akv .danger{background:rgba(255,59,48,.1);color:var(--bad);border:1px solid rgba(255,59,48,.2)}
+.akv .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.akv .two .akb{margin:0;padding:12px;font-size:14.5px;border-radius:14px}
+.akv form label{display:block;margin-top:16px}
+.akv form label span{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
+.akv form label input{width:100%;padding:14px 16px;background:var(--fld);border:1px solid rgba(0,0,0,.05);border-radius:14px;color:var(--ink);font:inherit;outline:0;transition:.3s;box-shadow:inset 0 2px 4px rgba(0,0,0,.02)}
+.akv form label input:focus{border-color:var(--bl);box-shadow:0 0 0 4px rgba(10,132,255,.15)}
+.akv .out{word-break:break-all;background:rgba(52,199,89,.1);border:1px dashed rgba(52,199,89,.3);border-radius:12px;padding:14px;font-size:14px;color:#248a3d;margin-top:16px;font-weight:600}
+.akv .aerr{color:var(--bad);font-size:14px;margin:12px 0 0;font-weight:600;text-align:center}
+.akv .bdg{display:inline-block;background:rgba(52,199,89,.15);color:#248a3d;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin-left:8px;vertical-align:2px}
+.akv .hi{padding:16px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.akv .hi:last-child{border:0;padding-bottom:0}
+.akv .hi b{display:block;font-weight:700;margin-bottom:2px;word-break:break-word}
+.akv .hi small{color:var(--mu);font-size:13px;display:block;word-break:break-all}
+.akv .akx{position:absolute;right:0;top:-8px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(0,0,0,.07);color:var(--ink);font-size:16px;cursor:pointer;z-index:2}
+.akv .drop{display:block;border:2px dashed rgba(0,0,0,.12);border-radius:24px;padding:34px 14px;text-align:center;cursor:pointer;background:var(--fld);margin-top:14px;transition:.3s}
+.akv .drop:active{transform:scale(.98)}
+.akv .drop svg{color:var(--bl)}
+.akv .drop b{display:block;margin-top:10px;font-weight:600;font-size:16px}
+.akv .drop span{display:block;font-size:13.5px;color:var(--mu);margin-top:2px}
+.akv .pv{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(0,0,0,.08);display:flex;justify-content:center;background:#fff;max-height:400px;margin-top:14px;box-shadow:inset 0 2px 10px rgba(0,0,0,.05)}
+.akv .pv img{max-width:100%;max-height:400px;object-fit:contain;display:block}
+.akv .scan{position:absolute;left:0;right:0;top:0;height:3px;background:var(--bl);box-shadow:0 0 20px 4px rgba(0,113,227,.6);animation:aksc 1.8s ease-in-out infinite alternate}
+@keyframes aksc{to{top:calc(100% - 3px)}}
+.akv .stt{display:flex;flex-direction:column;align-items:center;gap:8px;margin:20px 0 6px;font-weight:600;font-size:15px}
+.akv .pw{width:100%;height:6px;background:rgba(0,0,0,.08);border-radius:10px;overflow:hidden;margin-top:6px}
+.akv .pb{height:100%;width:0;background:var(--bl);border-radius:10px;transition:width .3s}
+.akv .err{background:rgba(255,59,48,.08);border:1px solid rgba(255,59,48,.2);color:var(--bad);border-radius:16px;padding:14px;margin-top:16px;font-size:14.5px;line-height:1.5;font-weight:500}
+.akv .okt{color:var(--ok)}
+.akv .logo{position:relative;width:110px;height:110px;margin:10px auto 20px}
+.akv .logo img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:0 12px 30px rgba(0,0,0,.12);background:#fff}
+.akv .tick{position:absolute;right:-2px;bottom:2px;width:34px;height:34px;border-radius:50%;background:var(--ok);display:grid;place-items:center;color:#fff;border:3px solid #fff;box-shadow:0 4px 12px rgba(52,199,89,.4)}
+.akv .vids{margin-top:34px}
+.akv .vids h2{font-size:19px;font-weight:700;margin:0 4px 14px}
+.akv .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:4px 18px 16px;scrollbar-width:none}
+.akv .rail::-webkit-scrollbar{display:none}
+.akv .vc{position:relative;flex:none;width:140px;aspect-ratio:9/16;border-radius:20px;overflow:hidden;scroll-snap-align:start;display:block;background:#fff;border:1px solid rgba(0,0,0,.05);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.akv .vc img{width:100%;height:100%;object-fit:cover;display:block}
+.akv .nw{position:absolute;top:10px;left:10px;background:#ff3b30;color:#fff;font:600 11px/1 -apple-system,sans-serif;padding:5px 10px;border-radius:999px}
+.akv .pl{position:absolute;right:10px;bottom:10px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.4);display:grid;place-items:center;color:#fff}
+.akv .soc{display:flex;justify-content:center;gap:16px;margin:30px 0 12px}
+.akv .soc a{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.8);border:1px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.08),inset 0 1px 0 #fff;color:var(--ink)}
+.akv .soc a svg{width:26px;height:26px}
+.akv .soc .y{color:#f00}
+.akv .soc .f{color:#1877f2}
+.akv .soc .g{color:#ea4335}
+.akv .foot{color:var(--mu);font-size:13px;text-align:center;line-height:1.6;margin-top:24px;font-weight:500}
+@media(prefers-reduced-motion:reduce){.akv .scan{animation:none}}
 </style>
 </head>
 <body>
@@ -1026,6 +1101,209 @@ const WORKS = [
       printFallback();
     });
   });
+})();
+</script>
+<!-- ===== Subscribe verify (built-in). Link maker: open #maker or tap the footer 5 times ===== -->
+<div class="akv" id="akv" role="dialog" aria-modal="true" aria-hidden="true"></div>
+<script>
+(function(){
+const CFG={name:'IQ Growth',handle:'@iqimproved'};
+const SOC={yt:'https://youtube.com/@iqimproved',fb:'https://www.facebook.com/share/1eDuveW58Z/',mail:'akror.karmaker@gmail.com'};
+const LOGO='https://i.ibb.co/s9xWmGXG/Channel-profile-pic.jpg',LOGO2='https://i.ibb.co/TMjWvSNS/Channel-profile-pic.jpg';
+const VIDS=['3ojXZqxuuAo','4236AEcK69U','BmUnO6qUt6k','6KXTZCHEnU0','lydTXf8n39k'];
+const root=document.getElementById('akv'),$=s=>root.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const isUrl=u=>/^https?:\/\//i.test(u);
+const safe=u=>isUrl(u)?u:'#';
+const enc=o=>{let s='';new TextEncoder().encode(JSON.stringify(o)).forEach(x=>s+=String.fromCharCode(x));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')};
+const dec=t=>{t=t.replace(/-/g,'+').replace(/_/g,'/');while(t.length%4)t+='=';return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(t),c=>c.charCodeAt(0))))};
+const hid=s=>{let h=5381;for(let i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return(h>>>0).toString(36)};
+const base=()=>location.href.split('#')[0];
+const tget=id=>{try{return+sessionStorage.getItem('ak_t_'+id)||0}catch(e){return 0}};
+const tset=id=>{try{sessionStorage.setItem('ak_t_'+id,Date.now())}catch(e){}};
+const copy=(t,b)=>{const d=b.textContent,ok=()=>{b.textContent='কপি হয়েছে';setTimeout(()=>b.textContent=d,1500)};navigator.clipboard?navigator.clipboard.writeText(t).then(ok,()=>prompt('কপি করুন:',t)):prompt('কপি করুন:',t)};
+const P={
+yt:'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z',
+fb:'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'};
+const ST='fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"';
+const LOCK=`<svg width="42" height="42" viewBox="0 0 24 24" ${ST} stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`;
+const TICK=`<svg width="16" height="16" viewBox="0 0 24 24" ${ST} stroke-width="3"><path d="m5 12 5 5 9-10"/></svg>`;
+const UP=`<svg width="32" height="32" viewBox="0 0 24 24" ${ST} stroke-width="2"><path d="M12 16V4m0 0 4 4m-4-4L8 8M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>`;
+const YTI=`<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="${P.yt}"/></svg>`;
+const PLAY='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+const foot=()=>`<div class="soc"><a href="#" data-s="yt" class="y" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="${P.yt}"/></svg></a><a href="#" data-s="fb" class="f" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="${P.fb}"/></svg></a><a href="#" data-s="gm" class="g" aria-label="Gmail"><svg viewBox="0 0 24 24" ${ST} stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a></div><p class="foot">যাচাই আপনার ফোনেই হয়। ছবি কোথাও পাঠানো হয় না।</p>`;
+
+function openApp(url,pkg,ios){
+  const c=url.replace(/^https?:\/\//,'').replace(/^www\./,''),ua=navigator.userAgent;
+  if(/android/i.test(ua))location.href='intent://'+c+'#Intent;scheme=https;package='+pkg+';S.browser_fallback_url='+encodeURIComponent(url)+';end';
+  else if(/iphone|ipad|ipod/i.test(ua)){
+    location.href=ios(c,url);
+    const t=setTimeout(()=>{if(!document.hidden)location.href=url},1600);
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)clearTimeout(t)},{once:true});
+  }else window.open(url,'_blank','noopener');
+}
+const openYT=u=>/^https?:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//i.test(u)?openApp(u,'com.google.android.youtube',c=>'youtube://'+c):void window.open(u,'_blank','noopener');
+const openFB=u=>openApp(u,'com.facebook.katana',(c,x)=>'fb://facewebmodal/f?href='+encodeURIComponent(x));
+
+let prevOv='';
+function show(html){
+  root.innerHTML=html;root.classList.add('open');root.setAttribute('aria-hidden','false');
+  if(!document.body.dataset.akv){document.body.dataset.akv=1;prevOv=document.body.style.overflow;document.body.style.overflow='hidden'}
+  root.scrollTop=0;
+  const x=$('#akx');if(x)x.onclick=leave;
+  root.querySelectorAll('[data-s]').forEach(a=>a.onclick=e=>{e.preventDefault();const s=a.dataset.s;if(s==='yt')openYT(SOC.yt);else if(s==='fb')openFB(SOC.fb);else location.href='mailto:'+SOC.mail});
+  root.querySelectorAll('[data-y]').forEach(a=>a.onclick=e=>{e.preventDefault();openYT(a.dataset.y)});
+}
+function hide(){root.classList.remove('open');root.setAttribute('aria-hidden','true');root.innerHTML='';if(document.body.dataset.akv){delete document.body.dataset.akv;document.body.style.overflow=prevOv}}
+function leave(){history.replaceState(null,'',base());hide()}
+
+/* ---------- Link maker ---------- */
+const hist=()=>{try{return JSON.parse(localStorage.getItem('ak_hist'))||[]}catch(e){return[]}};
+const saveHist=a=>{try{localStorage.setItem('ak_hist',JSON.stringify(a.slice(0,40)))}catch(e){}};
+function renderHist(){
+  const a=hist(),h=$('#akh');if(!h)return;
+  $('#abd').textContent=a.length;
+  h.innerHTML=a.length?a.map((x,i)=>`<div class="hi"><b>${esc(x.t)}</b><small>${esc(x.v||'ভিডিও লিংক নেই')}</small><div class="two"><button class="akb ghost" type="button" data-c="${i}">কপি</button><button class="akb danger" type="button" data-d="${i}">মুছুন</button></div></div>`).join(''):'<p class="sub" style="margin:0;text-align:left">এখনো কোনো লিংক বানানো হয়নি।</p>';
+  h.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>copy(a[b.dataset.c].u,b));
+  h.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{if(confirm('এই লিংকটি তালিকা থেকে সরাবেন? (লিংকটি আগের মতোই চলবে)')){a.splice(b.dataset.d,1);saveHist(a);renderHist()}});
+}
+function maker(){
+  show(`<div class="aw mk"><button class="akx" id="akx" type="button" aria-label="বন্ধ">✕</button>
+  <h1>লিংক তৈরি</h1><p class="sub">ভিডিও প্রতি একটি করে ভেরিফিকেশন লিংক বানান</p>
+  <form class="akc" id="akf" novalidate><h2>নতুন লিংক তৈরি</h2>
+    <label><span>চ্যানেলের নাম</span><input id="an" maxlength="60" placeholder="যেমন: IQ Growth" value="${esc(CFG.name)}"></label>
+    <label><span>ইউজারনেম (@হ্যান্ডেল)</span><input id="ah" autocapitalize="none" placeholder="@iqimproved" value="${esc(CFG.handle)}"></label>
+    <label><span>ভিডিওর ইউটিউব URL</span><input id="av" type="url" placeholder="https://youtu.be/..."></label>
+    <label><span>আনলক হলে যে লিংক দেখাবে</span><input id="al" type="url" placeholder="https://..."></label>
+    <label><span>আনলক বাটনের লেখা (ইংরেজিতে)</span><input id="ab" value="Open Link" maxlength="40"></label>
+    <label><span>পেজের শিরোনাম</span><input id="at" maxlength="80" placeholder="যেমন: ফ্রি টুল পেতে যাচাই করুন"></label>
+    <label><span>লিংকের নাম (ইংরেজিতে, ঐচ্ছিক)</span><input id="as" autocapitalize="none" placeholder="যেমন: free-tool"></label>
+    <button class="akb pri sq" type="submit">লিংক তৈরি করুন</button>
+    <p class="aerr hide" id="ae"></p><div id="ako"></div></form>
+  <div class="akc"><h2>আগের লিংকগুলো <span class="bdg" id="abd">0</span></h2><div id="akh"></div></div></div>`);
+  $('#akf').onsubmit=e=>{
+    e.preventDefault();
+    const o={n:$('#an').value.trim(),h:$('#ah').value.trim(),v:$('#av').value.trim(),l:$('#al').value.trim(),b:$('#ab').value.trim()||'Open Link',t:$('#at').value.trim()};
+    const s=$('#as').value.trim().toLowerCase().replace(/[^a-z0-9-]/g,''),er=$('#ae');
+    const err=m=>{er.textContent=m;er.classList.remove('hide')};
+    if(!o.n||!o.l)return err('চ্যানেলের নাম ও আনলক লিংক অবশ্যই দিন।');
+    if(!isUrl(o.l)||(o.v&&!isUrl(o.v)))return err('লিংক https:// দিয়ে শুরু হতে হবে।');
+    er.classList.add('hide');
+    const u=base()+'#u='+(s?s+'.':'')+enc(o),a=hist();
+    a.unshift({t:o.t||s||o.b,v:o.v,u});saveHist(a);
+    $('#ako').innerHTML=`<div class="out">${esc(u)}</div><div class="two"><button class="akb ghost" type="button" id="akc">কপি করুন</button><a class="akb ghost" href="${esc(u)}" target="_blank" rel="noopener">পরীক্ষা করুন</a></div>`;
+    $('#akc').onclick=()=>copy(u,$('#akc'));
+    renderHist();
+  };
+  renderHist();
+}
+
+/* ---------- Verify ---------- */
+const norm=s=>s.toLowerCase().replace(/1/g,'i').replace(/0/g,'o').replace(/5/g,'s').replace(/[^a-z0-9\u0980-\u09ff]/g,'');
+function chanOK(text,name){
+  const t=norm(text),w0=norm(name);
+  if(w0&&t.includes(w0))return true;
+  const w=name.toLowerCase().split(/\s+/).map(norm).filter(x=>x.length>=2);
+  return w.length>1&&w.filter(x=>t.includes(x)).length/w.length>=.6;
+}
+function userOK(text,un){const u=norm(String(un).replace('@',''));return !!u&&norm(text).includes(u)}
+function clockOK(text){
+  const n=new Date(),m=n.getHours()*60+n.getMinutes(),re=/(\d{1,2})\s*[:.]\s*(\d{2})/g;let x;
+  while((x=re.exec(text))){
+    const h=+x[1],mi=+x[2];if(h>23||mi>59)continue;
+    let df=Math.abs(((h%12)*60+mi)-(m%720));df=Math.min(df,720-df);
+    if(df<=2)return true;
+  }
+  return false;
+}
+const loadTess=()=>window.Tesseract?Promise.resolve():new Promise((ok,no)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+
+function bad(){show(`<div class="aw"><div class="ring">${LOCK}</div><h1>লিংকটি সঠিক নয়</h1><p class="sub">যে লিংক থেকে এসেছেন সেটি আবার খুলুন।</p>${foot()}</div>`)}
+function done(o){
+  const nm=o.n||CFG.name;
+  show(`<div class="aw"><div class="logo"><img src="${LOGO}" alt="${esc(nm)}" onerror="this.onerror=null;this.src='${LOGO2}'"><span class="tick">${TICK}</span></div>
+  <h1>Verified</h1><p class="sub">Thanks for subscribing to ${esc(nm)}.</p>
+  <a class="akb good" href="${esc(safe(o.l))}" target="_blank" rel="noopener">${esc(o.b||'Open Link')}</a>
+  <section class="vids"><h2>Latest videos</h2><div class="rail">${VIDS.map((v,i)=>`<a class="vc" href="https://youtube.com/shorts/${v}" data-y="https://youtube.com/shorts/${v}"><img loading="lazy" src="https://i.ytimg.com/vi/${v}/hqdefault.jpg" alt="">${i?'':'<span class="nw">Latest</span>'}<span class="pl">${PLAY}</span></a>`).join('')}</div></section>${foot()}</div>`);
+}
+function gate(o,id){
+  try{const d=JSON.parse(localStorage.getItem('ak_u_'+id));if(d&&d.e>Date.now())return done(o)}catch(e){}
+  const nm=o.n||CFG.name,hd=o.h||CFG.handle,hasV=!!o.v,chUrl=hd?'https://youtube.com/'+(hd[0]==='@'?hd:'@'+hd):SOC.yt;
+  show(`<div class="aw"><div class="ring">${LOCK}</div>
+  <h1>${esc(o.t||'ফ্রি লিংক পেতে যাচাই করুন')}</h1>
+  <p class="sub">${hasV?'দুটি':'একটি'} ধাপ পার হলেই আপনার লিংক খুলে যাবে।</p>
+  ${hasV?`<section class="akc" id="s1"><div class="hd"><span class="no">১</span><div><h2>ভিডিওতে কমেন্ট করুন</h2><p>ভিডিও খুলে একটি কমেন্ট লিখে এখানে ফিরে আসুন।</p></div></div>
+    <button class="akb pri" type="button" id="ov">ভিডিও খুলুন</button>
+    <button class="akb sec hide" type="button" id="d1">কমেন্ট করেছি, এগিয়ে যাই</button></section>`:''}
+  <section class="akc${hasV?' dim':''}" id="s2"><div class="hd"><span class="no">${hasV?'২':'১'}</span><div><h2>সাবস্ক্রাইব যাচাই করুন</h2><p>ইউটিউব অ্যাপে <b>${esc(nm)}</b> চ্যানেলের পেজ খুলে একটি পুরো স্ক্রিনশট নিন এবং এখানে দিন।</p></div></div>
+    <button class="akb yt" type="button" id="gc">${YTI}চ্যানেলে যান</button>
+    <input type="file" id="af" accept="image/*" class="hide">
+    <label class="drop" for="af" id="adz">${UP}<b>স্ক্রিনশট বেছে নিন</b><span>গ্যালারি থেকে ছবি দিন</span></label>
+    <div id="asc" class="pv hide"><img id="apv" alt=""><div class="scan"></div></div>
+    <div id="ast" class="stt hide"><div>সাবস্ক্রাইব যাচাই হচ্ছে <span id="apr" style="color:#0071e3">0%</span></div><div class="pw"><div class="pb" id="apb"></div></div></div>
+    <div id="aer" class="err hide" role="alert"></div></section>${foot()}</div>`);
+  if(hasV){
+    $('#ov').onclick=()=>{tset(id);openYT(o.v);setTimeout(()=>$('#d1').classList.remove('hide'),700)};
+    $('#d1').onclick=()=>{$('#s2').classList.remove('dim');$('#s1').classList.add('dim');$('#s2').scrollIntoView({behavior:'smooth',block:'center'})};
+  }
+  $('#gc').onclick=()=>{tset(id);openYT(chUrl)};
+  $('#af').onchange=e=>e.target.files[0]&&verify(o,e.target.files[0],id);
+}
+async function verify(o,file,id){
+  const nm=o.n||CFG.name,hd=o.h||CFG.handle,er=$('#aer'),st=$('#ast'),pr=$('#apr'),pb=$('#apb');let worker;
+  $('#apv').src=URL.createObjectURL(file);
+  $('#adz').classList.add('hide');er.classList.add('hide');$('#asc').classList.remove('hide');st.classList.remove('hide');
+  pr.textContent='প্রস্তুত হচ্ছে...';pb.style.width='5%';
+  const fail=(m='যাচাই করা যায়নি। সঠিক ও পরিষ্কার স্ক্রিনশট নিয়ে আবার চেষ্টা করুন।')=>{$('#asc').classList.add('hide');st.classList.add('hide');er.textContent=m;er.classList.remove('hide');$('#adz').classList.remove('hide');$('#adz b').textContent='আবার চেষ্টা করুন';$('#af').value='';pb.style.width='0%';pr.textContent='0%'};
+  const t=tget(id);
+  if(!t)return fail('আগে "চ্যানেলে যান" বাটনে চাপুন, তারপর স্ক্রিনশট দিন।');
+  if(Date.now()-t>120000)return fail('সময় শেষ! নির্দিষ্ট সময়ের মধ্যে স্ক্রিনশট দিতে হবে। আবার "চ্যানেলে যান" চেপে শুরু করুন।');
+  try{
+    await loadTess();
+    const bmp=await createImageBitmap(file);
+    let w=bmp.width,h=bmp.height;const mx=1800;
+    if(w>mx||h>mx){const r=Math.min(mx/w,mx/h);w=Math.round(w*r);h=Math.round(h*r)}
+    const cv=document.createElement('canvas');cv.width=w;cv.height=h;
+    const cx=cv.getContext('2d',{willReadFrequently:true});cx.drawImage(bmp,0,0,w,h);
+    const im=cx.getImageData(0,0,w,h),d=im.data;let tot=0;
+    for(let i=0;i<d.length;i+=4){const g=d[i]*.299+d[i+1]*.587+d[i+2]*.114;d[i]=g;tot+=g}
+    const dark=tot/(d.length/4)<128;
+    for(let i=0;i<d.length;i+=4){let g=dark?255-d[i]:d[i];g=Math.max(0,Math.min(255,(g-128)*1.8+128));d[i]=d[i+1]=d[i+2]=g}
+    cx.putImageData(im,0,0);
+    worker=await Tesseract.createWorker('eng+ben',1,{logger:m=>{
+      if(m.status==='recognizing text'){const p=Math.round(m.progress*100);pr.textContent=p+'%';pb.style.width=Math.max(30,p)+'%'}
+      else if(/loading|initializing/.test(m.status)){pr.textContent='লোড হচ্ছে...';pb.style.width='15%'}}});
+    const full=(await worker.recognize(cv)).data.text;
+    const c=document.createElement('canvas');c.width=w;c.height=Math.round(h*.07);
+    c.getContext('2d').drawImage(cv,0,0,w,c.height,0,0,w,c.height);
+    await worker.setParameters({tessedit_pageseg_mode:'11',tessedit_char_whitelist:'0123456789:. APMapm'});
+    const strip=(await worker.recognize(c)).data.text;
+    const ident=chanOK(full,nm)||userOK(full,hd);
+    const subd=/subscribed/.test(norm(full))||/সাবস্ক্রাইব\s*করা\s*হয়েছে|সাবস্ক্রাইবড/.test(full);
+    const time=clockOK(strip)||clockOK(full);
+    console.log('[verify]',{ident,subd,time,text:full.slice(0,300)});
+    if(!ident||!subd||!time)return fail();
+    try{localStorage.setItem('ak_u_'+id,JSON.stringify({e:Date.now()+864e5}))}catch(e){}
+    st.innerHTML='<span class="okt">যাচাই সফল</span>';pb.style.width='100%';
+    setTimeout(()=>done(o),900);
+  }catch(e){console.error(e);fail('স্ক্যান করতে সমস্যা হয়েছে। ইন্টারনেট চেক করে আবার চেষ্টা করুন।')}
+  finally{if(worker)worker.terminate()}
+}
+
+/* ---------- Router ---------- */
+function route(){
+  const h=location.hash;
+  if(h==='#maker')return maker();
+  if(h.startsWith('#u=')){
+    try{const p=h.slice(3),i=p.indexOf('.'),b=i<0?p:p.slice(i+1),o=dec(b);if(o&&isUrl(o.l||''))return gate(o,hid(b))}catch(e){}
+    return bad();
+  }
+  hide();
+}
+addEventListener('hashchange',route);
+let taps=0,tt;const ft=document.querySelector('footer');
+if(ft)ft.addEventListener('click',()=>{taps++;clearTimeout(tt);tt=setTimeout(()=>taps=0,2000);if(taps>=5){taps=0;location.hash='maker'}});
+route();
 })();
 </script>
 </body>
